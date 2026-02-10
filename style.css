@@ -1,0 +1,263 @@
+:root {
+    --emerald: #2d5a27;
+    --sage: #a3cf93;
+    --soft-green: #e8f5e9;
+    --slate: #2c3e50;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Enable Smooth Scrolling when clicking #links */
+html {
+    scroll-behavior: smooth;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--soft-green);
+    color: var(--slate);
+    overflow-x: hidden;
+}
+
+/* --- LOGO & NAVBAR (Your existing code) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background: rgba(217, 233, 219, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    animation: logoFadeIn 1s ease-out forwards;
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, #2d5a27, #a3cf93);
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.2);
+    border: 2px solid rgba(255,255,255,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #2d5a27;
+    line-height: 1;
+    transition: all 0.4s ease;
+}
+.logo-text:hover{
+    transform: scale(1.1);
+}
+
+.logo-text span {
+    font-weight: 300;
+    color: #555;
+    display: block;
+    font-size: 10px;
+    margin-top: 2px;
+    letter-spacing: 4px;
+}
+
+
+
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--emerald);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+}
+.nav-btn:hover{
+    transform: translateY(-1px) scale(1.1);
+}
+
+.loc-icon { color: var(--emerald); font-size: 1.2rem; transition: var(--transition); }
+.loc-icon:hover { transform: translateY(-3px) scale(1.2); }
+
+/* --- HERO & INFO CARD (Your existing code) --- */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000') center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(45, 90, 39, 0.8), rgba(0,0,0,0.2));
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+}
+
+.hero-content { color: white; max-width: 600px; animation: fadeInUp 1s ease; }
+.hero-content h1 { font-size: 4.5rem; line-height: 1; }
+
+.explore-btn {
+    padding: 15px 35px;
+    background: var(--white);
+    color: var(--emerald);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.container { padding: 100px 8%; display: flex; justify-content: center; }
+
+.info-card {
+    background: white;
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 900px;
+    margin-top: -150px;
+    position: relative;
+    z-index: 10;
+}
+
+.badge {
+    background: var(--soft-green);
+    color: var(--emerald);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.line { width: 50px; height: 3px; background: var(--emerald); margin: 20px auto; }
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.f-item {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(45, 90, 39, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.f-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #2d5a27, #a3cf93);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.f-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(45, 90, 39, 0.15);
+    border-color: var(--sage);
+}
+
+/* --- NEW MAP SECTION STYLING --- */
+.map-container {
+    padding: 80px 8%;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.map-header {
+    margin-bottom: 40px;
+}
+
+.map-frame {
+    border-radius: 30px;
+    overflow: hidden; /* Rounds the iframe corners */
+    box-shadow: var(--shadow);
+    border: 8px solid var(--soft-green);
+    transition: var(--transition);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map-frame:hover {
+    transform: scale(1.01);
+    box-shadow: 0 15px 40px rgba(45, 90, 39, 0.2);
+}
+
+/* --- MODALS (Your existing code) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 40px;
+    width: 400px;
+    border-radius: 20px;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+}
+
+.close { position: absolute; right: 20px; top: 15px; font-size: 25px; cursor: pointer; }
+
+.input-group {
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.input-group input { border: none; background: none; outline: none; width: 100%; }
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--emerald);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes logoFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
