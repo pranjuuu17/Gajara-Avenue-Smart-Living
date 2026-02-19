@@ -271,6 +271,29 @@ body {
         text-align: center;
     }
 }
+/* AMENITIES */
+.amenity-card {
+    background: #111;
+    border: 1px solid rgba(197,160,89,0.2);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.amenity-card:hover {
+    transform: translateY(-8px);
+    border: 1px solid var(--gold);
+    box-shadow: 0 15px 40px rgba(197,160,89,0.2);
+}
+
+.amenity-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    transition: var(--transition);
+}
+
+.amenity-card:hover .amenity-icon {
+    transform: scale(1.2);
+}
 
 /* COMMITTEE */
 .member-img-wrapper {
@@ -286,11 +309,15 @@ body {
     object-fit: cover;
     transition: 0.6s;
 }
+.member-img-wrapper:hover {
+    transform: scale(1.01);
+        border: 2px solid var(--gold);
 
+}
 .member-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.664);
     opacity: 0;
     display: flex;
     justify-content: center;
@@ -391,19 +418,19 @@ footer {
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-3 stat-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-3 stat-box" data-aos="fade-up" >
                     <div class="stat-number">112</div>
                     <div class="small text-white-50">RESIDENTIAL FLATS</div>
                 </div>
-                <div class="col-md-3 stat-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-3 stat-box" data-aos="fade-up" >
                     <div class="stat-number">24/7</div>
                     <div class="small text-white-50">COMMUNITY SUPPORT</div>
                 </div>
-                <div class="col-md-3 stat-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-3 stat-box" data-aos="fade-up" >
                     <div class="stat-number">100%</div>
                     <div class="small text-white-50">TRUSTED MANAGEMENT</div>
                 </div>
-                <div class="col-md-3 stat-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-3 stat-box" data-aos="fade-up" >
                     <div class="stat-number">3+</div>
                     <div class="small text-white-50">SERVICE PROVIDERS</div>
                 </div>
@@ -494,6 +521,71 @@ footer {
                 </div>
             </div>
             
+        </div>
+    </div>
+</section>
+<section id="amenities" class="py-5" style="background: var(--obsidian); border-top: 1px solid rgba(197, 160, 89, 0.1);">
+    <div class="container py-5">
+        
+        <!-- Section Heading -->
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h6 class="text-uppercase" style="color: var(--gold); letter-spacing: 5px;">Luxury Features</h6>
+            <h2 class="display-5 fw-bold" style="font-family: 'Cinzel', serif;">Premium Amenities</h2>
+            <div style="width: 80px; height: 2px; background: var(--gold); margin: 20px auto;"></div>
+        </div>
+
+        <!-- Amenities Grid -->
+        <div class="row g-4">
+
+            <!-- Amenity Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="amenity-card text-center p-4">
+                    <i class="fa-solid fa-dumbbell amenity-icon"></i>
+                    <h5 class="mt-3">Modern Gym</h5>
+                    <p class="text-white-50 small">Fully equipped fitness center for healthy living.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="amenity-card text-center p-4">
+                    <i class="fa-solid fa-tree amenity-icon"></i>
+                    <h5 class="mt-3">Landscaped Garden</h5>
+                    <p class="text-white-50 small">Beautiful green spaces for relaxation & family time.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="amenity-card text-center p-4">
+                    <i class="fa-solid fa-child-reaching amenity-icon"></i>
+                    <h5 class="mt-3">Kids Play Area</h5>
+                    <p class="text-white-50 small">Safe and fun environment for children.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="amenity-card text-center p-4">
+                    <i class="fa-solid fa-shield-halved amenity-icon"></i>
+                    <h5 class="mt-3">24/7 Security</h5>
+                    <p class="text-white-50 small">CCTV surveillance and controlled entry system.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="amenity-card text-center p-4">
+                    <i class="fa-solid fa-car amenity-icon"></i>
+                    <h5 class="mt-3">Ample Parking</h5>
+                    <p class="text-white-50 small">Dedicated parking spaces for residents & guests.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="amenity-card text-center p-4">
+                    <i class="fa-solid fa-bolt amenity-icon"></i>
+                    <h5 class="mt-3">Power Backup</h5>
+                    <p class="text-white-50 small">Uninterrupted power supply for common areas.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
