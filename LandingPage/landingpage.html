@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
     <style>
         :root {
@@ -64,8 +64,13 @@ body {
     color: var(--gold) !important;
     font-weight: 800;
     font-size: 28px;
-}
+        transition: all 1s;
 
+}
+.logo-text:hover{
+    transform: scale(1.1);
+
+}
 .nav-link {
     color: rgba(255,255,255,0.7) !important;
     font-weight: 600;
@@ -79,6 +84,10 @@ body {
 .nav-link:hover {
     color: var(--gold) !important;
     font-weight: 700;
+    transform: scale(1.1);
+    text-decoration:  underline;
+    text-underline-offset: 6px;
+
 }
 
 .navbar-toggler {
@@ -159,22 +168,23 @@ body {
     display: flex;
     align-items: center;
     background:
-        linear-gradient(to right, rgba(10,10,11,0.9), rgba(10,10,11,0.5)),
-        url('hero-sec-img.jpg');
+        linear-gradient(to right, rgba(10,10,11,0.8), rgba(10,10,11,0.4 )),
+        url(gajra_avenue-pathardi_phata-nashik-gajra_associates.avif);
     background-size: cover;
     background-position: center;
+    object-fit: cover;
     padding: 140px 0 100px;
 }
 
 .hero-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: 75px;
 }
 
 .hero-title span {
     display: block;
     color: var(--gold);
-    font-size: 1.2rem;
+    font-size: 20px;
     letter-spacing: 6px;
     margin-bottom: 10px;
 }
@@ -294,7 +304,10 @@ body {
 .amenity-card:hover .amenity-icon {
     transform: scale(1.2);
 }
-
+.amenity-card p{
+    padding-left: 20px;
+     padding-right: 20px;
+}
 /* COMMITTEE */
 .member-img-wrapper {
     position: relative;
@@ -538,54 +551,87 @@ footer {
         <div class="row g-4">
 
             <!-- Amenity Item -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="amenity-card text-center p-4">
-                    <i class="fa-solid fa-dumbbell amenity-icon"></i>
-                    <h5 class="mt-3">Modern Gym</h5>
-                    <p class="text-white-50 small">Fully equipped fitness center for healthy living.</p>
-                </div>
-            </div>
+           <!-- 1. Security (Highest Priority) -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-shield-halved amenity-icon"></i>
+        <h5 class="mt-3">24/7 Security</h5>
+        <p class="text-white-50 small">CCTV surveillance and controlled entry system for complete safety.</p>
+    </div>
+</div>
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="amenity-card text-center p-4">
-                    <i class="fa-solid fa-tree amenity-icon"></i>
-                    <h5 class="mt-3">Landscaped Garden</h5>
-                    <p class="text-white-50 small">Beautiful green spaces for relaxation & family time.</p>
-                </div>
-            </div>
+<!-- 2. Power Backup -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-bolt amenity-icon"></i>
+        <h5 class="mt-3">Power Backup</h5>
+        <p class="text-white-50 small">Uninterrupted power supply for common areas and essential services.</p>
+    </div>
+</div>
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="amenity-card text-center p-4">
-                    <i class="fa-solid fa-child-reaching amenity-icon"></i>
-                    <h5 class="mt-3">Kids Play Area</h5>
-                    <p class="text-white-50 small">Safe and fun environment for children.</p>
-                </div>
-            </div>
+<!-- 3. Lift -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-elevator amenity-icon"></i>
+        <h5 class="mt-3">Lift Facility</h5>
+        <p class="text-white-50 small">Lift available in each building for convenient access.</p>
+    </div>
+</div>
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="amenity-card text-center p-4">
-                    <i class="fa-solid fa-shield-halved amenity-icon"></i>
-                    <h5 class="mt-3">24/7 Security</h5>
-                    <p class="text-white-50 small">CCTV surveillance and controlled entry system.</p>
-                </div>
-            </div>
+<!-- 4. Spacious Parking -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-car amenity-icon"></i>
+        <h5 class="mt-3">Spacious Parking</h5>
+        <p class="text-white-50 small">Dedicated parking spaces for residents and guests.</p>
+    </div>
+</div>
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="amenity-card text-center p-4">
-                    <i class="fa-solid fa-car amenity-icon"></i>
-                    <h5 class="mt-3">Ample Parking</h5>
-                    <p class="text-white-50 small">Dedicated parking spaces for residents & guests.</p>
-                </div>
-            </div>
+<!-- 5. Clubhouse -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-house amenity-icon"></i>
+        <h5 class="mt-3">Clubhouse</h5>
+        <p class="text-white-50 small">Well-equipped clubhouse for society meetings and events.</p>
+    </div>
+</div>
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="amenity-card text-center p-4">
-                    <i class="fa-solid fa-bolt amenity-icon"></i>
-                    <h5 class="mt-3">Power Backup</h5>
-                    <p class="text-white-50 small">Uninterrupted power supply for common areas.</p>
-                </div>
-            </div>
+<!-- 6. Modern Gym -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-dumbbell amenity-icon"></i>
+        <h5 class="mt-3">Modern Gym</h5>
+        <p class="text-white-50 small">Fully equipped fitness center for healthy living.</p>
+    </div>
+</div>
 
+<!-- 7. Kids Play Area -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-child-reaching amenity-icon"></i>
+        <h5 class="mt-3">Kids' Play Area</h5>
+        <p class="text-white-50 small">Safe and fun environment designed for children.</p>
+    </div>
+</div>
+
+<!-- 8. Pandavleni View -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-tree amenity-icon"></i>
+        <h5 class="mt-3">Pandavleni View</h5>
+        <p class="text-white-50 small">Scenic view of the historic Pandavleni hills.</p>
+    </div>
+</div>
+
+<!-- 9. Beautiful Mountain View -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+    <div class="amenity-card text-center p-4">
+        <i class="fa-solid fa-mountain-city amenity-icon"></i>
+        <h5 class="mt-3">Beautiful Mountain View</h5>
+        <p class="text-white-50 small">Pleasant views of surrounding mountains and greenery.</p>
+    </div>
+</div>
+        
         </div>
     </div>
 </section>
@@ -600,7 +646,7 @@ footer {
         </div>
 
         <div class="row g-4 justify-content-center">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" >
                 <div class="committee-card">
                     <div class="member-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&fit=crop" alt="President">
@@ -618,7 +664,7 @@ footer {
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" >
                 <div class="committee-card">
                     <div class="member-img-wrapper">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR077PE7SFy74yT4AW2PBeMqEhcslD0ZI98dQ&s" alt="Manager">
@@ -636,7 +682,7 @@ footer {
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" >
                 <div class="committee-card">
                     <div class="member-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&fit=crop" alt="Secretary">
@@ -654,7 +700,7 @@ footer {
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up">
                 <div class="committee-card">
                     <div class="member-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&h=400&fit=crop" alt="Treasurer">
@@ -679,7 +725,7 @@ footer {
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5" data-aos="fade-right">
-                    <h6 class="text-gold text-uppercase mb-3">The Address:</h6>
+                    <h6 class="text-uppercase mb-3" style="color: var(--gold);">The Address:</h6>
                     <h2 class="fw-bold mb-4">Pathardi Phata, Nashik</h2>
                     <p class="text-white-50">Strategically located at the pulse of Nashik, offering hillside views with urban connectivity.</p>
                     <ul class="list-unstyled text-white-50">
