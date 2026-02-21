@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gajra Avenue | Resident Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #c5a059;
+            --gold-light: #e2c275;
+            --obsidian: #0a0a0b;
+            --white: #ffffff;
+            --transition-luxury: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(rgba(10, 10, 11, 0.9), rgba(10, 10, 11, 0.95)), 
+                        url(gajra_avenue-pathardi_phata-nashik-gajra_associates.avif); /* Ensure this matches your asset name */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 16px;
+            color: var(--white);
+        }
+
+        /* BRAND */
+        .brand {
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeInDown 0.8s ease;
+        }
+        .brand h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        .brand p {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* GLASS CARD */
+        .auth-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 2px; /* Architectural sharp corners */
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* FORM ELEMENTS */
+        .form-label {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0px; 
+            padding: 12px 15px;
+            color: var(--white);
+            transition: var(--transition-luxury);
+        }
+
+        .form-select {
+    /* Corrected: Added 'no-repeat' and positioned it to the right */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23c5a059' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+}
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+            color: var(--white);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 14px;
+        }
+
+        /* STRENGTH INDICATOR */
+        .strength {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        .strength.weak { color: #ff4d4d; }
+        .strength.medium { color: #e2c275; }
+        .strength.strong { color: #16a34a; }
+
+        /* BUTTON */
+        .btn-main {
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 0px;
+            padding: 15px;
+            font-weight: 700;
+            color: var(--obsidian);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition-luxury);
+            margin-top: 20px;
+        }
+
+        .btn-main:hover {
+            background: var(--white);
+            border-color: var(--white);
+            transform: translateY(-3px);
+            color: #0a0a0b;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        /* LINKS */
+        .link {
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-luxury);
+            font-size: 13px;
+        }
+
+        .link:hover {
+            color: var(--white);
+            text-shadow: 0 0 10px var(--gold);
+        }
+
+        .text-muted {
+            color: rgba(255,255,255,0.5) !important;
+        }
+
+        /* Validation Colors */
+        .is-invalid { border-color: #ff4d4d !important; }
+        .invalid-feedback { color: #ff4d4d; font-size: 11px; }
+
+        option { background: var(--obsidian); color: var(--white); }
+    </style>
+</head>
+
+<body>
+
+<div class="brand">
+    <h1>GAJRA AVENUE</h1>
+</div>
+
+<div class="auth-card">
+    <div class="text-center mb-4">
+        <h4 class="fw-bold mb-1">Join the Avenue</h4>
+        <p class="text-muted small">Register to experience architectural finesse.</p>
+    </div>
+
+    <form id="signupForm" novalidate>
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Resident Category</label>
+                <select class="form-select" id="role" required>
+                    <option value="" hidden>Choose Role</option>
+                    <option>Society Member</option>
+                    <option>Managing Committee</option>
+                    <option>Security</option>
+                </select>
+                <div class="invalid-feedback">Please select your role.</div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Simran Palde" required>
+                <div class="invalid-feedback">Name is required.</div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Flat Number</label>
+                <input type="text" class="form-control" id="flat" placeholder="A-402" required>
+                <div class="invalid-feedback">Flat info required.</div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Official Email</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                <div class="invalid-feedback">Enter a valid email.</div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Mobile Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="10-digit number" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required>
+                <div class="invalid-feedback">Valid 10-digit number required.</div>
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <label class="form-label">Access Key</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                <div id="strengthText" class="strength"></div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <label class="form-label">Confirm Key</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm" required>
+                <div class="invalid-feedback">Keys do not match.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-main w-100">Request Access</button>
+    </form>
+
+    <div class="text-center mt-5">
+        <p class="text-muted small mb-0">
+            Already a resident? 
+            <a href="login.html" class="link ms-1">Login Here</a>
+        </p>
+      
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("signupForm");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const strengthText = document.getElementById("strengthText");
+
+    /* PASSWORD STRENGTH */
+    password.addEventListener("input", () => {
+        const val = password.value;
+        if(val.length === 0) {
+            strengthText.textContent = "";
+        } else if(val.length < 6){
+            strengthText.textContent = "Security Level: Low";
+            strengthText.className = "strength weak";
+        } else if(/[A-Z]/.test(val) && /[0-9]/.test(val)){
+            strengthText.textContent = "Security Level: High";
+            strengthText.className = "strength strong";
+        } else {
+            strengthText.textContent = "Security Level: Medium";
+            strengthText.className = "strength medium";
+        }
+    });
+
+    /* FORM VALIDATION */
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+        let valid = true;
+
+        form.querySelectorAll("input, select").forEach(input => {
+            if(!input.checkValidity()){
+                input.classList.add("is-invalid");
+                valid = false;
+            } else {
+                input.classList.remove("is-invalid");
+            }
+        });
+
+        if(password.value !== confirmPassword.value){
+            confirmPassword.classList.add("is-invalid");
+            valid = false;
+        }
+
+        if(valid){
+            const btn = form.querySelector('button');
+            btn.innerHTML = '<i class="fa-solid fa-crown fa-spin me-2"></i> Registering...';
+            
+            setTimeout(() => {
+                alert("Registration Request Sent Successfully!");
+                window.location.href = "login.html";
+            }, 2000);
+        }
+    });
+
+    // Auto-remove error state
+    form.querySelectorAll("input, select").forEach(input => {
+        input.addEventListener("input", () => {
+            if(input.value !== "") input.classList.remove("is-invalid");
+        });
+    });
+</script>
+
+</body>
+</html>
