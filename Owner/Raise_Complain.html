@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raise Complaint | Gajra Avenue</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+    --gold:#c5a059;
+    --gold-light:#e2c275;
+    --obsidian:#0a0a0b;
+    --card:#111111;
+    --white:#ffffff;
+    --transition: all 0.4s ease;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--obsidian);
+    color:var(--white);
+    background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.95)), 
+                        url(../LandingPage/gajra_avenue-pathardi_phata-nashik-gajra_associates.avif); 
+     background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: none;
+}
+
+.page-header{
+    padding:60px 0 30px;
+    text-align:center;
+}
+
+.page-header h1{
+    font-family:'Cinzel',serif;
+    color:var(--gold);
+    letter-spacing:3px;
+}
+
+.luxury-card{
+    background:var(--card);
+    border:1px solid rgba(197,160,89,0.2);
+    border-radius:18px;
+    padding:30px;
+    transition:var(--transition);
+}
+
+.luxury-card:hover{
+    box-shadow:0 0 30px rgba(197,160,89,0.15);
+}
+
+.form-control, .form-select{
+    background:#1a1a1a;
+    border:1px solid rgba(197,160,89,0.3);
+    color:var(--white);
+}
+
+.form-control:focus, .form-select:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 8px rgba(197,160,89,0.4);
+    background:#1a1a1a;
+    color:var(--white);
+}
+
+.btn-gold{
+    background:var(--gold);
+    border:none;
+    color:#000;
+    font-weight:600;
+    padding:10px 25px;
+    border-radius:30px;
+    transition:var(--transition);
+}
+
+.btn-gold:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+}
+
+.complaint-item{
+    background:#151515;
+    padding:20px;
+    border-radius:12px;
+    border-left:4px solid var(--gold);
+    margin-bottom:15px;
+}
+.complaint-item:hover{ 
+    border-color:var(--gold); 
+    transform:translateY(-6px);
+     box-shadow:0 15px 35px rgba(197,160,89,0.15); 
+     border: 2px solid var(--gold); 
+     border-left:4px solid var(--gold);
+}
+.status-badge{
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.pending{ background:#ffc107; color:#000; }
+.resolved{ background:#28a745; }
+.inprogress{ background:#17a2b8; }
+
+.success-msg{
+    display:none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1>Raise a Complaint</h1>
+        <p class="text-white-50">Gajra Avenue Owner Support Portal</p>
+    </div>
+
+    <!-- Complaint Form -->
+    <div class="luxury-card mb-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 style="color:var(--gold);">Complaint Form</h5>
+            <span class="text-white-50">Flat No: <strong id="flatNumber">A-203</strong></span>
+        </div>
+
+        <form onsubmit="submitComplaint(event)">
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <label class="form-label">Complaint Category</label>
+                    <select class="form-select" required>
+                        <option value="" hidden>Select Category</option>
+                        <option>Lift Not Working</option>
+                        <option>Water Leakage</option>
+                        <option>Electricity Issue</option>
+                        <option>Parking Problem</option>
+                        <option>Security Concern</option>
+                        <option>Cleaning</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Location of Issue</label>
+                    <input type="text" class="form-control" placeholder="Example: Wing B - 3rd Floor" required>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Complaint Description</label>
+                    <textarea class="form-control" rows="4" placeholder="Describe the issue clearly..." required></textarea>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Attach Image (Optional)</label>
+                    <input type="file" class="form-control">
+                </div>
+
+            </div>
+
+            <div class="text-end mt-4">
+                <button type="submit" class="btn btn-gold">
+                    <i class="fa-solid fa-paper-plane me-2"></i>Submit Complaint
+                </button>
+            </div>
+        </form>
+
+        <div class="alert alert-success mt-4 success-msg" id="successMessage">
+            ✅ Complaint submitted successfully. Complaint ID: <strong id="complaintId"></strong>
+        </div>
+
+    </div>
+
+    <!-- Complaint History -->
+    <div class="luxury-card">
+        <h5 class="mb-4" style="color:var(--gold);">Recent Complaints</h5>
+
+        <div class="complaint-item">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6>Lift Not Working - Wing B</h6>
+                    <small class="text-white-50">ID: GA10234 | 20 Feb 2026</small>
+                </div>
+                <span class="status-badge pending">Pending</span>
+            </div>
+        </div>
+
+        <div class="complaint-item">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6>Water Leakage in Parking</h6>
+                    <small class="text-white-50">ID: GA10212 | 12 Feb 2026</small>
+                </div>
+                <span class="status-badge resolved">Resolved</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function submitComplaint(event){
+    event.preventDefault();
+
+    const randomId = "GA" + Math.floor(10000 + Math.random() * 90000);
+
+    document.getElementById("complaintId").innerText = randomId;
+    document.getElementById("successMessage").style.display = "block";
+}
+</script>
+
+</body>
+</html>

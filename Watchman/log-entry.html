@@ -20,6 +20,12 @@
 body {
     background: var(--obsidian);
     color: var(--white);
+     background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.95)), 
+                        url(../LandingPage/gajra_avenue-pathardi_phata-nashik-gajra_associates.avif); 
+     background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: none;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -139,6 +145,7 @@ textarea::placeholder {
     <option value="B">B Wing</option>
     <option value="C">C Wing</option>
     <option value="D">D Wing</option>
+    <option value="managermeet">Meet manager</option>
 </select>
 </div>
 
@@ -233,6 +240,15 @@ wingSelect.addEventListener("change", function() {
     flatSelect.innerHTML = '<option value="" disabled selected hidden>Select Flat</option>';
     notifySection.style.display = "none";
 
+    // ✅ If "Meet manager" selected → hide flat field
+    if (wing === "managermeet") {
+        flatSelect.closest(".residence-field").style.display = "none";
+        return;
+    } else {
+        flatSelect.closest(".residence-field").style.display = "block";
+    }
+
+    // Generate flats normally
     for (let i = 101; i <= 128; i++) {
         const option = document.createElement("option");
         option.value = wing + "-" + i;

@@ -4,305 +4,400 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Watchman Panel | Gajra Avenue</title>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-
-:root {
+     :root {
     --gold: #c5a059;
     --gold-light: #e2c275;
+    --gold-glow: rgba(197, 160, 89, 0.4);
     --obsidian: #0a0a0b;
     --white: #ffffff;
-    --transition: all 0.4s ease;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    padding-top: 80px;   /* Adjust according to navbar height */
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden;
+body {
     background: var(--obsidian);
     color: var(--white);
     font-family: 'Montserrat', sans-serif;
+    padding-top: 80px;
+    overflow-x: hidden;
+     
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar {
-    background: rgba(10,10,11,0.95);
-    padding: 24px 0;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--gold-light);
-    transition: var(--transition);
-    
-}
-
-.navbar.scrolled {
-    padding: 15px 0;
-    background: #0a0a0b;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-}
-.navbar {
-    background: rgba(10,10,11,0.95);
-    border-bottom: 1px solid var(--gold-light);
+    background: #0a0a0bfa;
+    border-bottom: 1px solid var(--gold);
     padding: 20px 0;
+}
+@media (max-width: 768px) {
+
+    .navbar .container {
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px;
+    }
+
+    .navbar .container > div {
+        text-align: center;
+    }
+
 }
 
 .logo-text {
     font-family: 'Cinzel', serif;
     letter-spacing: 3px;
-    color: var(--gold) ;
+    color: var(--gold) !important;
     font-weight: 800;
     font-size: 28px;
-    transition: all 1s;
+        transition: all 1s;
 
 }
-
 .logo-text:hover{
     transform: scale(1.1);
+     text-shadow: 2px 2px 10px var(--gold-light);
 
 }
-
 .role-badge {
     border: 1px solid var(--gold);
     padding: 6px 18px;
-    text-transform: uppercase;
     font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 500;
+    margin-top: 8px;
+    text-transform: uppercase;
     transition: all 1s;
-        animation: role-badge 2s infinite ease-in-out;
-
+    animation: role-badge 2s infinite ease-in-out;
 }
-
-@keyframes role-badge {
-    0%{
-        opacity: 0.8;
-        font-weight: 500;        
-        transform: scale(1);
-    }100%{
-        opacity: 1;
-        font-weight: 600;
-        transform: scale(1.2);
-
-    }
-}
-.role-badge:hover{
-    transform: scale(1.1);
-    background-color: #ffffff;
-    color: #ffa600;
-    font-weight: 900;
+.role-badge:hover{ 
+    transform: scale(1.1); 
+    background-color: #ffffff; 
+    color: #ffa600; 
+    font-weight: 900; 
+    font-size: 13px;
     border: 3px solid #c5a059;
+ }
+.dropdown-menu {
+    border-radius: 12px;
+    padding: 10px 0;
 }
 
-/* HERO */
+.dropdown-item {
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    background: var(--gold);
+    color: #000;
+}
+@keyframes role-badge { 
+    0%{ 
+        opacity: 0.8;
+         font-weight: 500; 
+         transform: scale(1); 
+        
+    }
+    100%{ 
+        opacity: 1; 
+        font-weight: 600; 
+        transform: scale(1.2); 
+    } 
+}
+/* ================= HERO ================= */
+
 .hero {
-    min-height: 60vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
+    text-align: center;
     background:
         linear-gradient(to right, rgba(10,10,11,0.9), rgba(10,10,11,0.6)),
-        url('https://plus.unsplash.com/premium_photo-1750616868609-da2d88eba096?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c29jaWV0eSUyMHNlY3VyaXR5fGVufDB8fDB8fHww');
+        url('https://newprojects.99acres.com/projects/gajra_associates/gajra_avenue/images/oh1iys6j_sm.jpg');
     background-size: cover;
+  
     background-position: center;
-    object-fit: cover;
-    text-align: center;
+    padding: 60px 20px;
 }
 
-.hero h1 {
+.glow-text{
     font-family: 'Cinzel', serif;
-    font-size: 60px;
+    font-size: 62px;
+    letter-spacing: 2px;
+    padding: 0px 20px;
+       text-shadow: 0 0 20px rgba(197,160,89,0.2);
+animation: hero_title 4s ease-in-out infinite alternate;
 }
-.hero p{
-    font-size: 20px;
+@keyframes hero_title {
+    0%{
+        transform: scale(1);
+       
+        text-shadow: 0 0 5px rgba(197,160,89,0.3);
+    }
+    100%{
+        transform: scale(1.06);
+       
+        text-shadow: 0 0 20px rgba(197,160,89,0.8);
+    }
 }
+
+.hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+}
+
 .btn-gold {
     background: var(--gold);
     color: #000;
     padding: 12px 30px;
-    text-transform: uppercase;
     font-weight: 600;
-    border: none;
-    transition: var(--transition);
     text-decoration: none;
+    display: inline-block;
 }
 
 .btn-gold:hover {
-    background: var(--white);
+    background: white;
 }
 
-/* ACTION CARDS */
-.action-card {
-    background: #111;
-    border: 1px solid rgba(197,160,89,0.3);
-    padding: 35px;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.action-card:hover {
-    transform: translateY(-8px);
-    border: 1px solid var(--gold);
-    box-shadow: 0 15px 40px rgba(197,160,89,0.2);
-}
-
-.action-card i {
-    font-size: 32px;
-    color: var(--gold);
-}
+/* ================= SECTION TITLE ================= */
 
 .section-title {
     font-family: 'Cinzel', serif;
     text-align: center;
-    margin-bottom: 50px;
-    font-weight: 700;
-    font-size: 42px;
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
-/* STATS */
+/* ================= STATS ================= */
+
 .stat-box {
     background: #111;
+    border: 1px solid rgba(197,160,89,0.3);
     padding: 30px;
-    text-align: center;
-    border: 1px solid rgba(197,160,89,0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform:uppercase ;
+    transition:  all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    color: rgba(255, 255, 255, 0.55);
 }
 
+.stat-box:hover {
+    transform: translateY(-8px);
+    border: 1px solid var(--gold);
+    box-shadow: 0 15px 40px rgba(197,160,89,0.2);
+}
+.stat-box:hover .stat-number{
+        transform: scale(1.2);
+}
 .stat-number {
     font-family: 'Cinzel';
-    font-size: 32px;
+    font-size: 34px;
     color: var(--gold);
 }
 
-/* TABLE */
-.table {
+/* ================= TABLE ================= */
+
+.table-wrapper {
     background: #111;
+    padding: 20px;
+    border: 1px solid rgba(197,160,89,0.3);
+}
+
+.table {
     color: white;
 }
 
 .table th {
-    text-align: center;
     color: var(--gold);
+    text-align: center;
 }
 
 .table td {
     text-align: center;
-    color: rgba(0, 0, 0, 0.8);
+    vertical-align: middle;
 }
 
-/* EMERGENCY */
+/* ================= EMERGENCY ================= */
+
 .emergency {
     background: #2b0000;
-    padding: 60px 0;
+    padding: 60px 20px;
     text-align: center;
-    border-top: 1px solid var(--gold-light);
+    margin-top: 60px;
+    border-bottom: 1px solid red;
+     border-top: 1px solid red;
 }
 
 .emergency button {
     background: red;
     border: none;
-    padding: 15px 50px;
+    padding: 15px 40px;
     font-weight: bold;
+    color: white;
 }
-
-footer {
-    border-top: 1px solid var(--gold-light);
+.emergency button:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.849);
 }
+/* ================= RESPONSIVE ================= */
 
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .stat-number {
+        font-size: 26px;
+    }
+
+    .emergency button {
+        width: 100%;
+    }
+}
 </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-<div class="container d-flex justify-content-between align-items-center">
-    <div class="logo-text">GAJRA AVENUE</div>
-    <div class="role-badge ">Watchman Panel</div>
-</div>
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <!-- LEFT -->
+        <div class="logo-text">GAJRA AVENUE</div>
+
+        <!-- RIGHT SIDE -->
+        <div class="d-flex align-items-center gap-5">
+
+
+            <!-- Notification Icon -->
+            <div class="position-relative">
+                <i class="bi bi-bell" style="font-size:20px; color: var(--gold); cursor:pointer;"></i>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="dropdown">
+                <div class="d-flex align-items-center gap-2 dropdown-toggle"
+                     role="button"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false"
+                     style="cursor:pointer;">
+
+                    <img src="https://thumbs.dreamstime.com/b/guardian-radio-transmitter-cartoon-character-guardian-radio-transmitter-cartoon-character-bodyguard-flat-vector-142265240.jpg"
+                         class="rounded-circle"
+                         width="40"
+                         height="40"
+                         style="border:2px solid var(--gold); object-fit:cover;">
+
+                    
+                </div>
+
+                <ul class="dropdown-menu dropdown-menu-end shadow">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="../LandingPage/landingpage.html">Logout</a></li>
+                </ul>
+            </div>
+            
+            <!-- Role Badge -->
+            <div class="role-badge">Watchman Panel</div>
+
+        </div>
+    </div>
 </nav>
 
 <section class="hero">
 <div class="container">
-    <h1>Gate Control & Visitor Monitoring</h1>
-    <p class="text-white-50 mb-4">Manage entry, deliveries & security operations with precision.</p>
+    <h1 class="glow-text">Gate Control & Visitor Monitoring</h1>
+    <p class="mb-4">Manage entry, deliveries & security operations with precision.</p>
     <a href="log-entry.html" class="btn-gold">Log New Entry</a>
 </div>
 </section>
 
-<!-- <section class="py-5">
+<section class="py-5">
 <div class="container">
-    <h2 class="section-title">Quick Actions</h2>
-    <div class="row g-4">
+    <h2 class="section-title display-5 fw-bold" style="font-family: 'Cinzel', serif;">Recent Entries</h2>
+    <div style="width: 80px; height: 2px; background: var(--gold); margin: auto; position: relative; top: -25px;"></div> <div class="row g-4 text-center"></div>
 
-        <div class="col-md-3">
-            <a href="visitor-entry.html" class="action-card text-decoration-none text-white d-block">
-                <i class="fa-solid fa-id-card"></i>
-                <h5 class="mt-3">Visitor Entry</h5>
-            </a>
-        </div>
+    <div class="table-wrapper table-responsive" style="margin-top: 24px;">
+        <table class="table table-bordered align-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Flat</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="entryTable">
+                <tr>
+                    <td>Rahul Patil</td>
+                    <td>A-203</td>
+                    <td>10:30 AM</td>
+                    <td class="time-out">-</td>
+                    <td class="status-cell"></td>
+                </tr>
 
-        <div class="col-md-3">
-            <a href="delivery-log.html" class="action-card text-decoration-none text-white d-block">
-                <i class="fa-solid fa-box"></i>
-                <h5 class="mt-3">Delivery Log</h5>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="call-resident.html" class="action-card text-decoration-none text-white d-block">
-                <i class="fa-solid fa-phone"></i>
-                <h5 class="mt-3">Call Resident</h5>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="security-report.html" class="action-card text-decoration-none text-white d-block">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h5 class="mt-3">Security Report</h5>
-            </a>
-        </div>
-
+                <tr>
+                    <td>Amazon Delivery</td>
+                    <td>B-101</td>
+                    <td>09:10 AM</td>
+                    <td class="time-out">09:20 AM</td>
+                    <td class="status-cell"></td>
+                </tr>
+            </tbody>
+   
+        </table>
     </div>
 </div>
-</section> -->
+</section>
 
 <section class="py-5">
 <div class="container">
-    <h2 class="section-title">Today's Overview</h2>
-    <div class="row g-4 text-center">
+    <h2 class="section-title display-5 fw-bold" style="font-family: 'Cinzel', serif;">Today's Overview</h2>
+    <div style="width: 80px; height: 2px; background: var(--gold); margin: auto; position: relative; top: -25px;"></div> <div class="row g-4 text-center"></div>
 
-        <div class="col">
-            <div class="stat-box">
+    <div class="row g-4" style="margin-top: 24px;">
+
+        <div class="col-6 col-md-3 d-flex">
+            <div class="stat-box w-100 text-center">
                 <div class="stat-number">2</div>
                 Visitors
             </div>
         </div>
 
-        <div class="col">
-            <div class="stat-box">
+        <div class="col-6 col-md-3 d-flex">
+            <div class="stat-box w-100 text-center">
                 <div class="stat-number">4</div>
                 Deliveries
             </div>
         </div>
 
-
-        <div class="col">
-            <div class="stat-box">
+        <div class="col-6 col-md-3 d-flex">
+            <div class="stat-box w-100 text-center">
                 <div class="stat-number">4</div>
                 Service Providers
             </div>
         </div>
 
-        <div class="col">
-            <div class="stat-box">
+        <div class="col-6 col-md-3 d-flex">
+            <div class="stat-box w-100 text-center">
                 <div class="stat-number">0</div>
                 Alerts
             </div>
@@ -312,44 +407,10 @@ footer {
 </div>
 </section>
 
-<section class="py-5">
-<div class="container">
-<h2 class="section-title">Recent Entries</h2>
 
-<table class="table table-bordered">
-<thead>
-<tr>
-<th>Name</th>
-<th>Flat</th>
-<th>Time In</th>
-<th>Time Out</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Rahul Patil</td>
-<td>A-203</td>
-<td>10:30 AM</td>
-<td>-</td>
-<td class="text-warning">Inside</td>
-</tr>
-<tr>
-<td>Amazon Delivery</td>
-<td>B-101</td>
-<td>09:10 AM</td>
-<td>09:20 AM</td>
-<td class="text-success">Left</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</section>
 
 <section class="emergency">
-  
-<h3 style="font-family: 'Cinzel';">Emergency Control</h3>
+<h3 style="font-family:'Cinzel'" >Emergency Control</h3>
 <p class="text-white-50 mb-4">Activate immediate society-wide alert if required.</p>
 <button id="alertbtn">🚨 Broadcast Alert</button>
 </section>
@@ -357,14 +418,75 @@ footer {
 <footer class="py-4 text-center">
 <p class="small text-white-50">Gajra Avenue Watchman System © 2026</p>
 </footer>
+
 <script>
 document.getElementById("alertbtn").addEventListener("click", function() {
-
     if (confirm("Are you sure you want to broadcast emergency alert to all residents?")) {
         alert("🚨 Emergency Alert Sent to All Residents!");
     }
-
 });
+</script>
+<script>
+
+function formatTime(){
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let ampm = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? "0"+minutes : minutes;
+
+    return hours + ":" + minutes + " " + ampm;
+}
+
+function initializeStatus(){
+
+    const rows = document.querySelectorAll("#entryTable tr");
+
+    rows.forEach(row => {
+
+        const timeOutCell = row.querySelector(".time-out");
+        const statusCell = row.querySelector(".status-cell");
+
+        if(timeOutCell.innerText.trim() === "-"){
+
+            statusCell.innerHTML = `
+                <button class="btn btn-sm btn-danger exit-btn">
+                    Mark Exit
+                </button>
+            `;
+
+        } else {
+
+            statusCell.innerHTML = `
+                <span class="text-success">Left</span>
+            `;
+        }
+    });
+}
+
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("exit-btn")){
+        if(confirm("Do you want to mark this member as exited?")){
+             const row = e.target.closest("tr");
+            const timeOutCell = row.querySelector(".time-out");
+            const statusCell = row.querySelector(".status-cell");
+
+            timeOutCell.innerText = formatTime();
+
+            statusCell.innerHTML = `
+                <span class="text-success">Left</span>
+            `;
+        }
+       
+    }
+});
+
+initializeStatus();
+
 </script>
 </body>
 </html>

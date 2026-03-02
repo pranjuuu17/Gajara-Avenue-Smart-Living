@@ -20,17 +20,18 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(rgba(10, 10, 11, 0.9), rgba(10, 10, 11, 0.95)), 
-                        url(gajra_avenue-pathardi_phata-nashik-gajra_associates.avif); /* Ensure this matches your asset name */
+            background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.95)), 
+                        url(gajra_avenue-pathardi_phata-nashik-gajra_associates.avif);  /* Ensure this matches your asset name */
             background-size: cover;
-            background-position: center;
             background-attachment: fixed;
-            min-height: 100vh;
+            min-height: 100vh; 
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 40px 16px;
             color: var(--white);
+            background-position: center center;
+            justify-content: center;
         }
 
         /* BRAND */
@@ -60,7 +61,7 @@
             border: 1px solid rgba(197, 160, 89, 0.2);
             border-radius: 2px; /* Architectural sharp corners */
             padding: 40px;
-            max-width: 550px;
+            max-width: 650px;
             width: 100%;
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1);
@@ -187,7 +188,7 @@
     </div>
 
     <form id="signupForm" novalidate>
-        <div class="row">
+        <div class="row g-3">
             <div class="col-md-12 mb-3">
                 <label class="form-label">Resident Category</label>
                 <select class="form-select" id="role" required>
@@ -199,41 +200,49 @@
                 <div class="invalid-feedback">Please select your role.</div>
             </div>
 
-            <div class="col-md-6 mb-3">
+           <div class="row g-3">
+
+            <!-- Full Name -->
+            <div class="col-12">
                 <label class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="name" placeholder="Simran Palde" required>
                 <div class="invalid-feedback">Name is required.</div>
             </div>
 
-            <div class="col-md-6 mb-3">
+            <!-- Flat Number -->
+            <div class="col-12" id="flatField">
                 <label class="form-label">Flat Number</label>
-                <input type="text" class="form-control" id="flat" placeholder="A-402" required>
+                <input type="text" class="form-control" id="flat" placeholder="A-402">
                 <div class="invalid-feedback">Flat info required.</div>
             </div>
 
-            <div class="col-md-12 mb-3">
+            <!-- Email -->
+            <div class="col-12">
                 <label class="form-label">Official Email</label>
                 <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
                 <div class="invalid-feedback">Enter a valid email.</div>
             </div>
 
-            <div class="col-md-12 mb-3">
+            <!-- Phone -->
+            <div class="col-12">
                 <label class="form-label">Mobile Number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="10-digit number" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required>
+                <input type="tel" class="form-control" id="phone" placeholder="10-digit number" required>
                 <div class="invalid-feedback">Valid 10-digit number required.</div>
             </div>
 
-            <div class="col-md-6 mb-2">
+            <!-- Password Row -->
+            <div class="col-md-6">
                 <label class="form-label">Access Key</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" required>
                 <div id="strengthText" class="strength"></div>
             </div>
 
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                 <label class="form-label">Confirm Key</label>
                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm" required>
                 <div class="invalid-feedback">Keys do not match.</div>
             </div>
+
         </div>
 
         <button type="submit" class="btn btn-main w-100">Request Access</button>
@@ -307,6 +316,26 @@
             if(input.value !== "") input.classList.remove("is-invalid");
         });
     });
+
+    const roleSelect = document.getElementById("role");
+const flatField = document.getElementById("flatField");
+const flatInput = document.getElementById("flat");
+
+// Initially hide flat field
+flatField.style.display = "none";
+flatInput.removeAttribute("required");
+
+roleSelect.addEventListener("change", function() {
+    if (this.value === "Society Member") {
+        flatField.style.display = "block";
+        flatInput.setAttribute("required", "true");
+    } else {
+        flatField.style.display = "none";
+        flatInput.removeAttribute("required");
+        flatInput.classList.remove("is-invalid");
+        flatInput.value = "";
+    }
+});
 </script>
 
 </body>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay Maintenance | Gajra Avenue</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+    --gold:#c5a059;
+    --gold-light:#e2c275;
+    --obsidian:#0a0a0b;
+    --card:#111111;
+    --white:#ffffff;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--obsidian);
+    color:var(--white);
+    background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.95)), 
+                        url(../LandingPage/gajra_avenue-pathardi_phata-nashik-gajra_associates.avif); 
+     background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: none;
+}
+
+.page-header{
+    padding:60px 0 30px;
+    text-align:center;
+}
+
+.page-header h1{
+    font-family:'Cinzel',serif;
+    color:var(--gold);
+    letter-spacing:3px;
+}
+
+.luxury-card{
+    background:var(--card);
+    border:1px solid rgba(197,160,89,0.2);
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+}
+
+.bill-box{
+    background:#151515;
+    padding:20px;
+    border-radius:12px;
+}
+
+.total-amount{
+    font-size:28px;
+    color:var(--gold);
+    font-weight:600;
+}
+
+.form-control, .form-select{
+    background:#1a1a1a;
+    border:1px solid rgba(197,160,89,0.3);
+    color:var(--white);
+}
+
+.form-control:focus, .form-select:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 8px rgba(197,160,89,0.4);
+    background:#1a1a1a;
+    color:var(--white);
+}
+
+.btn-gold{
+    background:var(--gold);
+    border:none;
+    color:#000;
+    font-weight:600;
+    padding:12px 30px;
+    border-radius:30px;
+}
+
+.btn-gold:hover{
+    background:var(--gold-light);
+}
+
+.success-msg{
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1>Pay Maintenance Bill</h1>
+        <p class="text-white-50">Gajra Avenue Owner Billing Portal</p>
+    </div>
+
+    <!-- Bill Summary -->
+    <div class="luxury-card">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 style="color:var(--gold);">Bill Summary</h5>
+            <span class="text-white-50">Flat No: <strong>A-302</strong></span>
+        </div>
+
+        <div class="bill-box mb-4">
+            <div class="d-flex justify-content-between">
+                <span>Monthly Maintenance (Feb 2026)</span>
+                <span>₹3,000</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span>Parking Charges</span>
+                <span>₹500</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span>Water Charges</span>
+                <span>₹350</span>
+            </div>
+            <hr style="border-color:rgba(255,255,255,0.1);">
+            <div class="d-flex justify-content-between total-amount">
+                <span>Total Due</span>
+                <span>₹3,850</span>
+            </div>
+        </div>
+
+        <!-- Payment Form -->
+        <form onsubmit="payBill(event)">
+
+            <div class="mb-3">
+                <label class="form-label">Select Payment Method</label>
+                <select class="form-select" required>
+                    <option value="">Choose Payment Method</option>
+                    <option>UPI</option>
+                    <option>Debit Card</option>
+                    <option>Credit Card</option>
+                    <option>Net Banking</option>
+                </select>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-gold">
+                    <i class="fa-solid fa-credit-card me-2"></i>Pay Now ₹3,850
+                </button>
+            </div>
+
+        </form>
+
+        <div class="alert alert-success mt-4 success-msg" id="successMessage">
+            ✅ Payment Successful! Transaction ID: <strong id="txnId"></strong>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function payBill(event){
+    event.preventDefault();
+
+    const txn = "TXN" + Math.floor(100000 + Math.random() * 900000);
+
+    document.getElementById("txnId").innerText = txn;
+    document.getElementById("successMessage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
