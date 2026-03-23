@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Notices | Gajra Avenue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+    --gold: #c5a059;
+    --gold-light: #e2c275;
+    --gold-glow: rgba(197, 160, 89, 0.4);
+    --obsidian: #0a0a0b;
+    --white: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:var(--obsidian);
+    color:var(--white);
+     overflow-x: hidden;
+}
+
+/* HEADER */
+.notice-header{
+    height: 160px;              /* Fixed smaller height */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:
+        linear-gradient(to right, rgba(10,10,11,0.85), rgba(10,10,11,0.6)),
+        url('gajra_avenue-pathardi_phata-nashik-gajra_associates.jpg');
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+}
+
+.notice-header h1{
+    font-family:'Cinzel',serif;
+    font-size:50px;
+    color:var(--gold);
+}
+@media screen and (max-width:700px) {
+  .notice-header h1{
+    font-size: 30px;
+  }
+     .notice-header {
+        padding: 20px;
+    }
+  .notice-header p{
+font-size: 14px;
+  }
+}
+
+/* NOTICE CARD */
+/* FILTER BAR */
+.filter-bar{
+    background: rgba(17,17,17,0.8);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(197,160,89,0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Custom Input */
+.custom-input .input-group-text{
+    background:#111;
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+
+.custom-input input{
+    background:#111;
+    border:1px solid var(--gold);
+    color:white;
+}
+
+.custom-input input:focus{
+    box-shadow:0 0 10px var(--gold-glow);
+    border-color:var(--gold);
+}
+
+#searchInput::placeholder {
+    color: rgb(255, 255, 255);
+}
+#searchInput,
+#searchInput:focus {
+    background-color: #111 ;
+    color: white ;
+    border: 1px solid var(--gold) ;
+    box-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* Remove Bootstrap default white focus */
+.form-control:focus {
+    background-color: #111 ;
+    color: white;
+}
+/* Custom Select */
+.custom-select{
+    background:#111;
+    border:1px solid var(--gold);
+    color:white;
+}
+
+.custom-select:focus{
+    box-shadow:0 0 10px var(--gold-glow);
+    border-color:var(--gold);
+}
+
+/* Upgrade Notice Cards */
+
+.notice-card{
+    background: linear-gradient(145deg,#111,#0c0c0c);
+    border:1px solid rgba(197,160,89,0.3);
+    padding:30px;
+    border-radius:16px;
+    transition: all 0.4s ease;
+
+    width:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.notice-card:hover{
+    transform: translateY(-10px);
+    border:1px solid var(--gold);
+    box-shadow:0 20px 40px rgba(197,160,89,0.15);
+}
+
+/* Badge Upgrade */
+.badge-custom{
+    background: transparent;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.notice-title{
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.notice-date{
+    font-size:14px;
+    color:rgba(255,255,255,0.6);
+    margin-bottom:10px;
+}
+
+.badge-custom{
+    background:rgba(197,160,89,0.15);
+    color:var(--gold);
+    padding:5px 12px;
+    font-size:12px;
+    border-radius:20px;
+    border:1px solid var(--gold);
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid rgba(197,160,89,0.3);
+    margin-top:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+<section class="notice-header">
+    <h1>Society Notice Board</h1>
+    <p class="text-white-50">Important announcements for Flat Owners</p>
+</section>
+
+<div class="container">
+
+<!-- FILTER BAR -->
+<div class="filter-bar mb-5 mt-4">
+  <div class="row g-3 justify-content-center">
+
+    <div class="col-md-4">
+      <div class="input-group custom-input">
+        <span class="input-group-text">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input type="text" id="searchInput" class="form-control"
+               placeholder="Search notices...">
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <select id="categoryFilter" class="form-select custom-select">
+        <option value="all">All Categories</option>
+        <option value="Meeting">Meeting</option>
+        <option value="Security">Security</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Festival">Festival</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <select id="sortOption" class="form-select custom-select">
+        <option value="latest">Sort by Latest</option>
+        <option value="oldest">Sort by Oldest</option>
+      </select>
+    </div>
+
+  </div>
+    </div>
+
+
+
+    <!-- NOTICE CARDS -->
+    <div class="row g-4" id="noticeContainer">
+
+  <!-- Notice -->
+  <div class="col-lg-4 col-md-6 notice-item-card d-flex "
+       data-category="Maintenance"
+       data-date="2026-03-05">
+
+    <div class="notice-card">
+      <span class="badge-custom">Maintenance</span>
+      <h5 class="notice-title mt-3">
+        
+        Maintenance Payment Due
+      </h5>
+      <p class="notice-date">05 March 2026</p>
+      <p>Kindly pay maintenance before 10 March 2026.</p>
+    </div>
+  </div>
+
+ <div class="col-lg-4 col-md-6 notice-item-card d-flex"
+       data-category="Utility"
+       data-date="2026-03-08">
+
+    <div class="notice-card">
+      <span class="badge-custom">Utility</span>
+      <h5 class="notice-title mt-3">
+       
+        Water Supply Interruption
+      </h5>
+      <p class="notice-date">08 March 2026</p>
+      <p>Water unavailable from 10 AM to 2 PM.</p>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 notice-item-card d-flex"
+       data-category="Security"
+       data-date="2026-03-12">
+
+    <div class="notice-card">
+      <span class="badge-custom">Security</span>
+      <h5 class="notice-title mt-3">
+       
+        Visitor Entry Guidelines
+      </h5>
+      <p class="notice-date">12 March 2026</p>
+      <p>Inform security before expected visitors.</p>
+    </div>
+  </div>
+ <div class="col-lg-4 col-md-6 notice-item-card d-flex"
+       data-category="Festival"
+       data-date="2026-03-12">
+
+    <div class="notice-card">
+      <span class="badge-custom">Festival</span>
+      <h5 class="notice-title mt-3">
+       
+        Rangapanchami Celebration
+      </h5>
+      <p class="notice-date">8 March 2026</p>
+      <p>Rangapanchami will be celebrated commonly in society garden from 11AM to 4 PM.</p>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 notice-item-card d-flex"
+       data-category="Meeting"
+       data-date="2026-03-20">
+
+    <div class="notice-card">
+      <span class="badge-custom">Meeting</span>
+      <h5 class="notice-title mt-3">
+       
+        General Body Meeting
+      </h5>
+      <p class="notice-date">20 March 2026</p>
+      <p>Meeting on 25 March at 6:30 PM.</p>
+    </div>
+  </div>
+
+    </div> 
+
+</div> 
+
+<footer class="py-4 text-center">
+<p class="small text-white-50">Gajra Avenue Owner Portal © 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const sortOption = document.getElementById("sortOption");
+const noticeContainer = document.getElementById("noticeContainer");
+
+function filterAndSortNotices() {
+
+    const searchValue = searchInput.value.toLowerCase();
+    const selectedCategory = categoryFilter.value;
+    const sortValue = sortOption.value;
+
+    let notices = Array.from(document.querySelectorAll(".notice-item-card"));
+
+    // FILTER
+    notices.forEach(card => {
+        const title = card.innerText.toLowerCase();
+        const category = card.dataset.category;
+
+        const matchesSearch = title.includes(searchValue);
+        const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+
+        card.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
+    });
+
+    // SORT
+    notices.sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+
+        return sortValue === "latest"
+            ? dateB - dateA
+            : dateA - dateB;
+    });
+
+    notices.forEach(card => noticeContainer.appendChild(card));
+}
+
+searchInput.addEventListener("keyup", filterAndSortNotices);
+categoryFilter.addEventListener("change", filterAndSortNotices);
+sortOption.addEventListener("change", filterAndSortNotices);
+
+</script>
+</body>
+</html>

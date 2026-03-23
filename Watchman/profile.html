@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Watchman Profile | Gajra Avenue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+<style>
+
+:root{
+--gold:#c5a059;
+--obsidian:#0a0a0b;
+}
+
+body{
+background:var(--obsidian);
+color:white;
+font-family:'Montserrat';
+}
+
+.title{
+font-family:'Cinzel';
+color:var(--gold);
+text-align:center;
+margin:50px 0;
+letter-spacing:2px;
+}
+
+.profile-card{
+background:#111;
+border:1px solid rgba(197,160,89,0.3);
+padding:40px;
+border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+text-align:center;
+transition:0.4s;
+}
+
+.profile-card:hover{
+transform:translateY(-6px);
+border-color:var(--gold);
+}
+
+.profile-img{
+width:140px;
+height:140px;
+border-radius:50%;
+border:4px solid var(--gold);
+object-fit:cover;
+margin-bottom:20px;
+}
+
+.role{
+color:#aaa;
+margin-bottom:25px;
+}
+
+.info-box{
+background:#181818;
+padding:15px;
+border-radius:8px;
+margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+}
+
+.info-title{
+color:#bbb;
+}
+
+.btn-gold{
+background:var(--gold);
+border:none;
+color:black;
+font-weight:600;
+padding:10px 25px;
+margin-top:20px;
+}
+
+.btn-gold:hover{
+background:white;
+color: #0a0a0b;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">Watchman Profile</h1>
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="profile-card">
+
+<img src="https://thumbs.dreamstime.com/b/guardian-radio-transmitter-cartoon-character-guardian-radio-transmitter-cartoon-character-bodyguard-flat-vector-142265240.jpg" class="profile-img">
+
+<h3>Ramesh Shinde</h3>
+<p class="role">Security Guard</p>
+
+<div class="info-box">
+<span class="info-title">Employee ID</span>
+<span>WCH102</span>
+</div>
+
+<div class="info-box">
+<span class="info-title">Phone</span>
+<span>+91 9876543210</span>
+</div>
+
+<div class="info-box">
+<span class="info-title">Shift</span>
+<span>Morning (6 AM – 2 PM)</span>
+</div>
+
+<div class="info-box">
+<span class="info-title">Society</span>
+<span>Gajra Avenue</span>
+</div>
+
+<a href="edit-profile.html" class="btn btn-gold">
+Edit Profile
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

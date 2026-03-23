@@ -232,13 +232,13 @@
 
             <!-- Password Row -->
             <div class="col-md-6">
-                <label class="form-label">Access Key</label>
+                <label class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" required>
                 <div id="strengthText" class="strength"></div>
             </div>
 
             <div class="col-md-6">
-                <label class="form-label">Confirm Key</label>
+                <label class="form-label">Confirm Password</label>
                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm" required>
                 <div class="invalid-feedback">Keys do not match.</div>
             </div>
@@ -301,7 +301,7 @@
 
         if(valid){
             const btn = form.querySelector('button');
-            btn.innerHTML = '<i class="fa-solid fa-crown fa-spin me-2"></i> Registering...';
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Registering...';
             
             setTimeout(() => {
                 alert("Registration Request Sent Successfully!");

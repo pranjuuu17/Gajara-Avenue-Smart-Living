@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Gajra Avenue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+    --gold: #c5a059;
+    --gold-light: #e2c275;
+    --gold-glow: rgba(197, 160, 89, 0.4);
+    --obsidian: #0a0a0b;
+    --white: #ffffff;
+    --transition: all 0.4s ease;
+}
+
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:var(--obsidian);
+    color:var(--white);
+    overflow-x:hidden;
+}
+
+/* HEADER */
+.service-header{
+   height: 160px;              /* Fixed smaller height */ 
+   display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:
+        linear-gradient(to right, rgba(10,10,11,0.85), rgba(10,10,11,0.6)),
+        url('gajra_avenue-pathardi_phata-nashik-gajra_associates.jpg');
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+}
+
+.service-header h1{
+    font-family:'Cinzel',serif;
+    font-size:52px;
+    color:var(--gold);
+    letter-spacing:2px;
+}
+
+@media screen and (max-width:700px) {
+    .service-header {
+        padding: 20px;
+    }
+    .service-header h1{
+        font-size: 30px;
+    }
+}
+/* SEARCH */
+.search-box{
+    max-width:500px;
+    margin:30px auto;
+    position: relative;
+    top: -30px;
+}
+
+.custom-input .input-group-text{
+    background:#111;
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+
+.custom-input input{
+    background:#111;
+    border:1px solid var(--gold);
+    color:white;
+}
+
+.custom-input input::placeholder{
+    color:white;
+}
+
+.custom-input input:focus{
+    background:#111;
+    color:white;
+    box-shadow:0 0 10px var(--gold-glow);
+    border-color:var(--gold);
+}
+
+/* ACCORDION */
+.accordion-item{
+    background:#121212;
+    border:1px solid rgba(197,160,89,0.6);
+    border-radius:10px !important;
+    margin-bottom:25px;
+    overflow:hidden; /* IMPORTANT FIX */
+    transition:var(--transition);
+}
+
+/* Remove Bootstrap default border */
+.accordion-item:not(:first-of-type){
+    border-top:1px solid rgba(197,160,89,0.6);
+}
+
+
+/* Remove collapse border glitch */
+.accordion-collapse{
+    border:none;
+}
+
+.accordion-button.collapsed{
+    border-radius:10px;
+}
+
+.accordion-button:not(.collapsed){
+    border-radius:10px 10px 0 0;
+}
+.accordion-item:hover{
+    border:2px solid var(--gold);
+    box-shadow:0 15px 35px rgba(197,160,89,0.15);
+}
+
+.accordion-button{
+    background:#111;
+    color:var(--gold);
+    border: none;
+    font-weight:600;
+    font-family:'Cinzel',serif;
+}
+
+.accordion-button:not(.collapsed){
+    background:#111;
+    color:var(--gold);
+    box-shadow:none;
+}
+/* Change accordion arrow color to gold */
+.accordion-button::after {
+    filter: brightness(0) saturate(100%) 
+            invert(72%) sepia(35%) 
+            saturate(500%) hue-rotate(5deg) 
+            brightness(95%) contrast(95%);
+}
+.accordion-button:focus{
+    box-shadow:none;
+}
+
+/* PROVIDER ROW */
+.provider-row{
+    padding:18px 0;
+    border-bottom:1px solid rgba(197,160,89,0.2);
+    transition:0.3s;
+}
+
+.provider-row:last-child{
+    border-bottom:none;
+}
+
+.provider-row:hover{
+    background:rgba(197,160,89,0.08);
+    padding-left:12px;
+}
+
+/* Provider Name Stronger */
+.provider-name{
+    font-weight:600;
+    font-size:16px;
+    color:#ffffff; /* FIXED VISIBILITY */
+}
+
+/* Rating Improved */
+.rating{
+    color:#ffd700;
+    font-size:14px;
+    margin-top:3px;
+}
+
+/* Better Accordion Contrast */
+
+.accordion-button{
+    background:#111;
+    color:var(--gold);
+    font-weight:700;
+    font-size:18px;
+}
+
+/* Buttons */
+.btn-gold{
+    background:var(--gold);
+    color:#000;
+    font-weight:600;
+    border:none;
+    padding:6px 18px;
+    margin-right:8px;
+    transition:0.3s;
+}
+
+.btn-gold:hover{
+    background:white;
+    color:black;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp{
+    background:#25D366;
+    color:white;
+    font-weight:600;
+    border:none;
+    padding:6px 16px;
+    transition:0.3s;
+}
+
+.btn-whatsapp:hover{
+    background:#ffffff;
+    color:#1ebe5d;
+}
+</style>
+</head>
+
+<body>
+
+<section class="service-header">
+    <h1>Service Providers</h1>
+    <p class="text-white-50">Trusted professionals for your help</p>
+</section>
+
+<div class="container py-5">
+
+<!-- SEARCH -->
+<div class="search-box">
+<div class="input-group custom-input">
+    <span class="input-group-text">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </span>
+    <input type="text" id="searchService" class="form-control"
+           placeholder="Search Service or Provider...">
+</div>
+</div>
+
+<div class="accordion" id="serviceAccordion">
+
+<!-- ELECTRICIAN -->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#electrician">
+⚡ Electrician
+</button>
+</h2>
+<div id="electrician" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+    <div>
+        <div class="provider-name">Rajesh Electrical Works</div>
+        <div class="rating">4.8 ⭐</div>
+    </div>
+
+    <div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+    <div>
+        <div class="provider-name">PowerFix Solutions</div>
+        <div class="rating">4.6 ⭐</div>
+    </div>
+    <div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">BrightSpark Services</div>
+<div class="rating">4.4 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- PLUMBER -->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#plumber">
+🚰 Plumber
+</button>
+</h2>
+<div id="plumber" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">AquaFix Plumbing</div>
+<div class="rating">4.7 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">QuickFlow Plumbers</div>
+<div class="rating">4.5 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">PipeCare Services</div>
+<div class="rating">4.3 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--Cleaning Services-->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#cleaning">
+🧹 Cleaning Services
+</button>
+</h2>
+<div id="cleaning" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">ShinePro Cleaners</div>
+<div class="rating">4.8 ⭐</div>
+</div>
+<div>
+<a href="tel:9123987654" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919123987654" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Urban Cleaning Co.</div>
+<div class="rating">4.6 ⭐</div>
+</div>
+<div>
+<a href="tel:9812345678" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919812345678" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Spotless Homes</div>
+<div class="rating">4.5 ⭐</div>
+</div>
+<div>
+<a href="tel:9345126789" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919345126789" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--Painter-->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#painter">
+🎨 Painter
+</button>
+</h2>
+<div id="painter" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">ColorCraft Painters</div>
+<div class="rating">4.7 ⭐</div>
+</div>
+<div>
+<a href="tel:9345678901" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919345678901" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Urban Shades</div>
+<div class="rating">4.5 ⭐</div>
+</div>
+<div>
+<a href="tel:9811122233" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919811122233" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Prime Paint Services</div>
+<div class="rating">4.4 ⭐</div>
+</div>
+<div>
+<a href="tel:9000090000" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919000090000" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--Packers & Movers-->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#movers">
+🚚 Packers & Movers
+</button>
+</h2>
+<div id="movers" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">SafeMove Relocations</div>
+<div class="rating">4.7 ⭐</div>
+</div>
+<div>
+<a href="tel:9898989898" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919898989898" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Urban Packers</div>
+<div class="rating">4.5 ⭐</div>
+</div>
+<div>
+<a href="tel:9876541234" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919876541234" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">QuickShift Movers</div>
+<div class="rating">4.3 ⭐</div>
+</div>
+<div>
+<a href="tel:9765432190" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919765432190" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--Internet Providers-->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#internet">
+🌐 Internet Providers
+</button>
+</h2>
+<div id="internet" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Jio Fiber</div>
+<div class="rating">4.6 ⭐</div>
+</div>
+<div>
+<a href="tel:18008899999" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Airtel Xstream</div>
+<div class="rating">4.5 ⭐</div>
+</div>
+<div>
+<a href="tel:18001034444" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+</div>
+</div>
+
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Tata Play Fiber</div>
+<div class="rating">4.4 ⭐</div>
+</div>
+<div>
+<a href="tel:18002661515" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- CARPENTER -->
+<div class="accordion-item service-group">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#carpenter">
+🪚 Carpenter
+</button>
+</h2>
+<div id="carpenter" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+<div class="accordion-body">
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">WoodCraft Interiors</div>
+<div class="rating">4.7 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">Urban Woodworks</div>
+<div class="rating">4.5 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+<div class="provider-row d-flex justify-content-between align-items-center">
+<div>
+<div class="provider-name">FixIt Carpentry</div>
+<div class="rating">4.3 ⭐</div>
+</div>
+<div>
+        <a href="tel:9876543210" class="btn btn-gold btn-sm">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const searchInput = document.getElementById("searchService");
+
+searchInput.addEventListener("keyup", function(){
+    const value = this.value.toLowerCase();
+    const groups = document.querySelectorAll(".service-group");
+
+    groups.forEach(group=>{
+        const text = group.innerText.toLowerCase();
+        group.style.display = text.includes(value) ? "" : "none";
+    });
+});
+</script>
+
+</body>
+</html>

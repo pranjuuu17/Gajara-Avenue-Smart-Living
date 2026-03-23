@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | Gajra Avenue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+<style>
+
+:root{
+--gold:#c5a059;
+--obsidian:#0a0a0b;
+}
+
+body{
+background:var(--obsidian);
+color:white;
+font-family:'Montserrat';
+}
+
+.title{
+font-family:'Cinzel';
+color:var(--gold);
+text-align:center;
+margin:50px 0;
+}
+
+.settings-card{
+background:#111;
+border:1px solid rgba(197,160,89,0.3);
+padding:40px;
+border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+transition:0.4s;
+}
+
+.settings-card:hover{
+border-color:var(--gold);
+}
+
+.form-control{
+background:#181818;
+border:1px solid #333;
+color:white;
+}
+
+.form-control:focus{
+border-color:var(--gold);
+box-shadow:none;
+}
+
+.section-title{
+color:var(--gold);
+margin-bottom:20px;
+}
+
+.btn-gold{
+background:var(--gold);
+border:none;
+color:black;
+font-weight:600;
+padding:10px 25px;
+}
+
+.btn-gold:hover{
+background:white;
+color: #0a0a0b;
+}
+
+.switch-box{
+background:#181818;
+padding:12px;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">Settings</h1>
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="settings-card">
+
+<h5 class="section-title">Change Password</h5>
+
+<div class="mb-3">
+<label>Current Password</label>
+<input type="password" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>New Password</label>
+<input type="password" class="form-control">
+</div>
+
+<div class="mb-4">
+<label>Confirm Password</label>
+<input type="password" class="form-control">
+</div>
+
+<button class="btn btn-gold w-100">
+Update Password
+</button>
+
+<hr class="my-4">
+
+<h5 class="section-title">Notifications</h5>
+
+<div class="switch-box form-check">
+<input class="form-check-input" type="checkbox" checked>
+<label class="form-check-label">
+Visitor Entry Alerts
+</label>
+</div>
+
+<div class="switch-box form-check">
+<input class="form-check-input" type="checkbox" checked>
+<label class="form-check-label">
+Emergency Alerts
+</label>
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

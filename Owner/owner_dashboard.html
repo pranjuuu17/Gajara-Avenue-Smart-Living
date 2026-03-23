@@ -69,12 +69,12 @@ body{
 .nav-link:hover {
     color: var(--gold) !important;
     font-weight: 700;
-    transform: scale(1.1);
+    transform: scale(1.2);
     text-decoration:  underline;
+    text-shadow: 2px 2px 10px var(--gold-light);
     text-underline-offset: 6px;
 
 }
-
 .navbar-toggler {
     border: none;
     font-size: 1.5rem;
@@ -118,12 +118,10 @@ animation: hero_title 4s ease-in-out infinite alternate;
 @keyframes hero_title {
     0%{
         transform: scale(1);
-       
         text-shadow: 0 0 5px rgba(197,160,89,0.3);
     }
     100%{
         transform: scale(1.06);
-       
         text-shadow: 0 0 20px rgba(197,160,89,0.8);
     }
 }
@@ -248,27 +246,28 @@ transform: scale(1.1);
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav ms-auto align-items-lg-center text-center">
 
-<!-- 
+        <!-- 
         <li class="nav-item my-4 my-lg-0">
           <i class="fa-regular fa-bell text-warning"></i>
         </li> -->
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Notice</a>
+          <a class="nav-link" href="Owner_notice.html">Notice</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Service</a>
+          <a class="nav-link" href="Service.html">Service</a>
+        </li>
+
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="payments.html">Payments</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="#mycomplains">Complaints</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Payments</a>
-        </li>
-
         
 
         <li class="nav-item dropdown">
@@ -303,7 +302,7 @@ transform: scale(1.1);
 <!-- HEADER -->
 <section class="dashboard-header text-white">
 <div class="container">
-    <h2 class="glow-text">Welcome Back, Sayali 👋</h2>
+    <h2 class="glow-text">Welcome Back Sayali 👋</h2>
     <p>Flat A-203 | A Wing</p>
 </div>
 </section>
@@ -311,39 +310,90 @@ transform: scale(1.1);
 <div class="container py-5">
 
 <!-- SUMMARY CARDS -->
-<div class="row g-4 mb-5">
+<div class="row g-4 mb-5 text-center">
 
-<div class="col-6 col-md-3 d-flex">
-<div class="card-box w-100 text-center">
+<!-- 1 Maintenance Due -->
+<div class="col d-flex">
+<div class="card-box w-100">
 <h3>₹ 2,500</h3>
-<a href="pay_now.html" class="btn btn-gold p-1 ">
-    PAY NOW
-</a>
-<h6 class="small text-white-50 text-uppercase pt-2">Maintnance Due</h6>
+<a href="pay_now.html" class="btn btn-gold p-1">PAY NOW</a>
+<h6 class="small text-white-50 text-uppercase pt-2">Maintenance Due</h6>
 </div>
 </div>
 
-<div class="col-6 col-md-3 d-flex">
-<div class="card-box w-100 text-center">
+<!-- 2 Upcoming Events -->
+<div class="col d-flex">
+<div class="card-box w-100">
 <h3>2</h3>
-<h6 class="small text-white-50 text-uppercase">Visitors Today</h6>
+<h6 class="small text-white-50 text-uppercase">Upcoming Events</h6>
+<p class="small">Ganesh Festival</p>
 </div>
 </div>
 
-<div class="col-6 col-md-3 d-flex">
-<div class="card-box w-100 text-center">
-<h3>1</h3>
-<h6 class="small text-white-50 text-uppercase">Active Complaints</h6>
+<!-- 3 Latest Notices -->
+<div class="col d-flex">
+<div class="card-box w-100">
+<h3>3</h3>
+<h6 class="small text-white-50 text-uppercase">Latest Notices</h6>
+<p class="small">Water Maintenance</p>
 </div>
 </div>
 
-<div class="col-6 col-md-3 d-flex">
-<div class="card-box w-100 text-center">
-<h3>1</h3>
-<h6 class="small text-white-50 text-uppercase">Delivery Partners</h6>
+<!-- 4 Parking Status -->
+<div class="col d-flex">
+<div class="card-box w-100">
+<h3>A23</h3>
+<h6 class="small text-white-50 text-uppercase">Parking Slot</h6>
+<p class="small">Allocated</p>
 </div>
 </div>
 
+<!-- 5 Society Updates -->
+<div class="col d-flex">
+<div class="card-box w-100">
+<h3><i class="fa-solid fa-bullhorn"></i></h3>
+<h6 class="small text-white-50 text-uppercase">Society Updates</h6>
+<p class="small">New CCTV Installed</p>
+</div>
+</div>
+
+</div>
+
+<!-- COMPLAINTS -->
+
+<div id="mycomplains" class="table-wrapper mb-5">
+<h4 class="section-title">My Complaints</h4>
+
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Issue</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Water Leakage</td>
+<td class="text-warning">Pending</td>
+<td>20 Feb 2026</td>
+</tr>
+<tr>
+<td>Lift Noise</td>
+<td class="text-success">Resolved</td>
+<td>15 Feb 2026</td>
+</tr>
+<tr style="border: 2px solid var(--gold); font-size:15px ; font-weight: 600;">
+    <td colspan="3" style="background-color: #f2ede5;color: #c89b48;"><a>EXPAND</a></td>
+</tr>
+</tbody>
+</table>
+
+<div class="text-center mt-3">
+<a href="Raise_Complain.html" class="btn btn-gold">
+    RAISE COMPLAINT
+</a>
+</div>
 </div>
 
 <!-- VISITOR APPROVAL SECTION -->
@@ -398,58 +448,9 @@ transform: scale(1.1);
 
 </div>
 
-<!-- COMPLAINTS -->
 
-<div id="mycomplains" class="table-wrapper mb-5">
-<h4 class="section-title">My Complaints</h4>
 
-<table class="table table-hover">
-<thead>
-<tr>
-<th>Issue</th>
-<th>Status</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Water Leakage</td>
-<td class="text-warning">Pending</td>
-<td>20 Feb 2026</td>
-</tr>
-<tr>
-<td>Lift Noise</td>
-<td class="text-success">Resolved</td>
-<td>15 Feb 2026</td>
-</tr>
-</tbody>
-</table>
 
-<div class="text-center mt-3">
-<a href="Raise_Complain.html" class="btn btn-gold">
-    RAISE COMPLAINT
-</a>
-</div>
-</div>
-
-<!-- NOTICES -->
-<div class="row g-4">
-<div class="col-md-6">
-<div class="card-box">
-<h5 class="section-title">Society Notices</h5>
-<div class="notice-item">🔔 Lift maintenance on 25 Feb 2026.</div>
-<div class="notice-item">💧 Water supply interruption 22 Feb (2PM-4PM).</div>
-</div>
-</div>
-
-<div class="col-md-6">
-<div class="card-box">
-<h5 class="section-title">Upcoming Events</h5>
-<div class="notice-item">🎉 Holi Celebration - 8 March 2026</div>
-<div class="notice-item">🏏 Society Cricket Match - 15 March 2026</div>
-</div>
-</div>
-</div>
 
 </div>
 

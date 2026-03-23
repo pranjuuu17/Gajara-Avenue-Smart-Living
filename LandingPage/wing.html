@@ -3,140 +3,532 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gajra Avenue | Rentals</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --gold: #c5a059;
-    --gold-light: #e2c275;
-    --obsidian: #0a0a0b;
-    --white: #ffffff;
+
+:root{
+--gold:#c5a059;
+--gold-light:#e2c275;
+--obsidian:#0a0a0b;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--obsidian);
-    color: var(--white);
+body{
+font-family:'Montserrat',sans-serif;
+background:rgba(10,10,11,0.97);
+color:white;
 }
 
 /* HEADER */
-header {
-    padding: 60px 0 30px 0;
-    text-align: center;
+
+header{
+padding:60px 0 30px;
+text-align:center;
 }
 
-header h1 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    letter-spacing: 5px;
-    color: var(--gold);
-    text-transform: uppercase;
-}
-/* CARD */
-.flat-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 30px;
-    transition: 0.4s;
-    height: 100%;
+header h1{
+font-family:'Cinzel';
+letter-spacing:5px;
+color:var(--gold);
 }
 
-.flat-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-5px);
+/* FLAT CARD */
+
+.flat-card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+transition:0.4s;
 }
 
-.rent-badge {
-    background: rgba(197,160,89,0.1);
-    color: var(--gold-light);
-    border: 1px solid var(--gold);
-    padding: 6px 18px;
-    font-family: 'Cinzel';
-    font-weight: bold;
+.flat-card:hover{
+border-color:var(--gold);
+transform:translateY(-6px);
 }
 
-.btn-main {
-    background: var(--gold);
-    border: none;
-    color: black;
-    font-weight: bold;
+/* IMAGE GRID */
+
+.flat-gallery{
+display:flex;
+gap:10px;
+margin-bottom:15px;
 }
 
-.btn-main:hover {
-    background: white;
-    color: black;
+.flat-img-box{
+position:relative;
+overflow:hidden;
+width:33.33%;
+height:170px;
+border-radius:6px;
+}
+
+.flat-img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .5s;
+}
+
+/* Hover zoom */
+
+.flat-img-box:hover img{
+border: 1px solid white;
+border-radius:8 px;
+}
+
+/* + overlay */
+
+.more-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+font-weight:bold;
+}
+.gallery-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:9999;
+padding:40px;
+overflow:auto;
+}
+
+.gallery-container{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:20px;
+}
+
+.gallery-container img{
+width:100%;
+border-radius:10px;
+}
+
+.gallery-back{
+position:absolute;
+top:20px;
+left:30px;
+background:var(--obsidian);
+border:1px solid var(--gold);
+color:var(--gold);
+padding:8px 20px;
+margin-bottom: 20px;
+font-weight:600;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery-back:hover{
+background:var(--gold);
+color:black;
+}
+.slider-container{
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+height:85vh;
+}
+
+#sliderImage{
+max-width:90%;
+max-height:80vh;
+border-radius:10px;
+}
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+background:rgba(0,0,0,0.5);
+border:none;
+color:white;
+padding:10px 20px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.arrow.left{
+left:40px;
+}
+
+.arrow.right{
+right:40px;
+}
+
+.image-counter{
+position:absolute;
+bottom:30px;
+color:white;
+font-size:18px;
+background:rgba(0,0,0,0.5);
+padding:6px 15px;
+border-radius:6px;
+}
+/* RENT */
+
+.rent-badge{
+background:rgba(197,160,89,0.1);
+color:var(--gold-light);
+border:1px solid var(--gold);
+padding:6px 18px;
+font-family:'Cinzel';
+}
+
+.btn-main{
+background:var(--gold);
+border:none;
+color:black;
+font-weight:bold;
+}
+
+.btn-main:hover{
+background:white;
+color: black;
+}
+
+/* MOBILE SWIPE */
+
+@media(max-width:768px){
+
+.flat-gallery{
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+}
+
+.flat-img-box{
+min-width:85%;
+scroll-snap-align:center;
+}
+
 }
 
 </style>
 </head>
+
 <body>
 
 <header>
-    <h1>WING RENTALS</h1>
+<h1>WING RENTALS</h1>
 </header>
 
-<div class="container py-5">
+<div class="container py-2">
 
-    <div class="row g-4">
+<div class="row g-4">
 
-        <!-- Flat 1 -->
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="flat-card">
-                <h4>UNIT A-101 <span style="color:var(--gold); font-size:14px;">[2 BHK]</span></h4>
-                <p class="text-white-50">Premium luxury apartment with modern fittings.</p>
+<!-- FLAT 1 -->
 
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="rent-badge">₹18,000 /mo</div>
-                    <a href="tel:9820012345" class="btn btn-main px-4">Contact</a>
-                </div>
-            </div>
-        </div>
+<div class="col-lg-6">
 
-        <!-- Flat 2 -->
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="flat-card">
-                <h4>UNIT A-102 <span style="color:var(--gold); font-size:14px;">[1 BHK]</span></h4>
-                <p class="text-white-50">Spacious flat with balcony and parking facility.</p>
+<div class="flat-card">
 
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="rent-badge">₹15,000 /mo</div>
-                    <a href="tel:9820012345" class="btn btn-main px-4">Contact</a>
-                </div>
-            </div>
-        </div>
+<div class="flat-gallery">
 
-        <!-- Flat 3 -->
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="flat-card">
-                <h4>UNIT A-103 <span style="color:var(--gold); font-size:14px;">[3 BHK]</span></h4>
-                <p class="text-white-50">Large executive residence with premium interiors.</p>
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/0864ae45c3a7d3562f9e7ef83d36cd87/v0/fs-large.jpeg">
+</div>
 
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="rent-badge">₹25,000 /mo</div>
-                    <a href="tel:9820012345" class="btn btn-main px-4">Contact</a>
-                </div>
-            </div>
-        </div>
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/6be663fa3c5ede4e6d04c8d038218e92/v0/fs.jpeg">
+</div>
 
-        <!-- Flat 4 -->
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="flat-card">
-                <h4>UNIT A-104 <span style="color:var(--gold); font-size:14px;">[2 BHK]</span></h4>
-                <p class="text-white-50">Well ventilated flat with modern amenities.</p>
-
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="rent-badge">₹20,000 /mo</div>
-                    <a href="tel:9820012345" class="btn btn-main px-4">Contact</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
+<div class="flat-img-box"  onclick="openGallery()">
+<img src="https://housing-images.n7net.in/012c1500/20d9ccbf78c1ba260380e11bc80649f6/v0/fs-large.jpeg">
+<div class="more-overlay">+5</div>
 
 </div>
 
+</div>
+
+<h4>UNIT A-101 <span style="color:var(--gold);font-size:14px;">[2 BHK]</span></h4>
+
+<p class="text-white-50">
+Premium luxury apartment with modern fittings.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<div class="rent-badge">₹18,000 /MO</div>
+
+<button class="btn btn-main px-4"
+onclick="openFlat('A-101','2 BHK','18000')">
+Contact
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FLAT 2 -->
+
+<div class="col-lg-6">
+
+<div class="flat-card">
+
+<div class="flat-gallery">
+
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/0864ae45c3a7d3562f9e7ef83d36cd87/v0/fs-large.jpeg">
+</div>
+
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/6be663fa3c5ede4e6d04c8d038218e92/v0/fs.jpeg">
+</div>
+
+<div class="flat-img-box"  onclick="openGallery()">
+<img src="https://housing-images.n7net.in/012c1500/20d9ccbf78c1ba260380e11bc80649f6/v0/fs-large.jpeg">
+<div class="more-overlay">+6</div>
+
+</div>
+
+</div>
+
+<h4>UNIT A-102 <span style="color:var(--gold);font-size:14px;">[1 BHK]</span></h4>
+
+<p class="text-white-50">
+Spacious flat with balcony and parking facility.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<div class="rent-badge">₹15,000 /MO</div>
+
+<button class="btn btn-main px-4"
+onclick="openFlat('A-102','1 BHK','15000')">
+Contact
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FLAT 3 -->
+
+<div class="col-lg-6">
+
+<div class="flat-card">
+
+<div class="flat-gallery">
+
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/0864ae45c3a7d3562f9e7ef83d36cd87/v0/fs-large.jpeg">
+</div>
+
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/6be663fa3c5ede4e6d04c8d038218e92/v0/fs.jpeg">
+</div>
+
+<div class="flat-img-box"  onclick="openGallery()">
+<img src="https://housing-images.n7net.in/012c1500/20d9ccbf78c1ba260380e11bc80649f6/v0/fs-large.jpeg">
+<div class="more-overlay">+5</div>
+
+</div>
+
+</div>
+
+<h4>UNIT A-103 <span style="color:var(--gold);font-size:14px;">[3 BHK]</span></h4>
+
+<p class="text-white-50">
+Large executive residence with premium interiors.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<div class="rent-badge">₹25,000 /MO</div>
+
+<button class="btn btn-main px-4"
+onclick="openFlat('A-103','3 BHK','25000')">
+Contact
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FLAT 4 -->
+
+<div class="col-lg-6">
+
+<div class="flat-card">
+
+<div class="flat-gallery">
+
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/0864ae45c3a7d3562f9e7ef83d36cd87/v0/fs-large.jpeg">
+</div>
+
+<div class="flat-img-box">
+<img src="https://housing-images.n7net.in/012c1500/6be663fa3c5ede4e6d04c8d038218e92/v0/fs.jpeg">
+</div>
+
+<div class="flat-img-box"  onclick="openGallery()">
+<img src="https://housing-images.n7net.in/012c1500/20d9ccbf78c1ba260380e11bc80649f6/v0/fs-large.jpeg">
+<div class="more-overlay">+4</div>
+
+</div>
+
+</div>
+
+<h4>UNIT A-104 <span style="color:var(--gold);font-size:14px;">[2 BHK]</span></h4>
+
+<p class="text-white-50">
+Well ventilated flat with modern amenities.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<div class="rent-badge">₹20,000 /MO</div>
+
+<button class="btn btn-main px-4"
+onclick="openFlat('A-104','2 BHK','20000')">
+Contact
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- FULL SCREEN IMAGE SLIDER -->
+
+<div id="galleryModal" class="gallery-modal">
+
+<button class="gallery-back" onclick="closeGallery()">← Back</button>
+
+<div class="slider-container">
+
+<button class="arrow left" onclick="prevSlide()">❮</button>
+
+<img id="sliderImage" src="https://housing-images.n7net.in/012c1500/0864ae45c3a7d3562f9e7ef83d36cd87/v0/fs-large.jpeg">
+
+<button class="arrow right" onclick="nextSlide()">❯</button>
+
+<div class="image-counter">
+<span id="current">1</span> / <span id="total">6</span>
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let images = [
+"https://housing-images.n7net.in/012c1500/0864ae45c3a7d3562f9e7ef83d36cd87/v0/fs-large.jpeg",
+"https://housing-images.n7net.in/012c1500/20d9ccbf78c1ba260380e11bc80649f6/v0/fs-large.jpeg",
+"https://housing-images.n7net.in/012c1500/6be663fa3c5ede4e6d04c8d038218e92/v0/fs.jpeg",
+"https://housing-images.n7net.in/012c1500/61da632d14cdf1251ce75b8deba68657/v0/fs.jpeg",
+"https://housing-images.n7net.in/012c1500/996c9c0331994711e778a9d5f7c89b9d/v0/fs.jpeg",
+"https://housing-images.n7net.in/3dphydev/b2dccd7137d3ff9600df94f22a8522c4/v0/fs.png"
+];
+
+let index = 0;
+
+function openGallery(){
+document.getElementById("galleryModal").style.display="block";
+updateImage();
+}
+
+function closeGallery(){
+document.getElementById("galleryModal").style.display="none";
+}
+
+function updateImage(){
+document.getElementById("sliderImage").src = images[index];
+document.getElementById("current").innerText = index + 1;
+document.getElementById("total").innerText = images.length;
+}
+
+function nextSlide(){
+index++;
+if(index >= images.length) index = 0;
+updateImage();
+}
+
+function prevSlide(){
+index--;
+if(index < 0) index = images.length - 1;
+updateImage();
+}
+
+</script>
+<script>
+
+function openFlat(id,type,rent){
+
+window.location.href =
+"flat-details.html?id="+id+
+"&type="+type+
+"&rent="+rent;
+
+}
+
+</script>
+
+<script>
+
+let startX = 0;
+
+document.getElementById("sliderImage").addEventListener("touchstart", function(e){
+startX = e.touches[0].clientX;
+});
+
+document.getElementById("sliderImage").addEventListener("touchend", function(e){
+
+let endX = e.changedTouches[0].clientX;
+
+if(startX > endX + 50){
+nextSlide();
+}
+
+if(startX < endX - 50){
+prevSlide();
+}
+
+});
+
+</script>
+<script>
+
+function openGallery(){
+document.getElementById("galleryModal").style.display="block";
+}
+
+function closeGallery(){
+document.getElementById("galleryModal").style.display="none";
+}
+
+</script>
 </body>
 </html>

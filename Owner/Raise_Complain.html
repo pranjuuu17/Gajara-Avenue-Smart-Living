@@ -53,7 +53,17 @@ body{
 .luxury-card:hover{
     box-shadow:0 0 30px rgba(197,160,89,0.15);
 }
+/* Fix Placeholder Visibility */
+.form-control::placeholder,
+.form-select::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1;
+}
 
+/* For better contrast when focused */
+.form-control:focus::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
 .form-control, .form-select{
     background:#1a1a1a;
     border:1px solid rgba(197,160,89,0.3);
