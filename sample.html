@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gajara Avenue | Smart Living</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>:root {
+    --emerald: #1a4a6a;
+    --sage: #6b8cd7;
+    --soft-green: #e8f5e9;
+    --slate: #256fb9;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color:rgb(197, 203, 205);
+    color: var(--slate);
+    overflow-x: hidden;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background: rgba(248, 251, 253, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    animation: logoFadeIn 1s ease-out forwards;
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, #6fb8dd, #2b20c2);
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.2);
+    border: 2px solid rgba(47, 49, 117, 0.377);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #202a82;
+    line-height: 1;
+    transition: all 0.4s ease;
+}
+.logo-text:hover{
+    transform: scale(1.1);
+}
+
+.logo-text span {
+    font-weight: 300;
+    color: #080d60;
+    display: block;
+    font-size: 10px;
+    margin-top: 2px;
+    letter-spacing: 4px;
+}
+
+
+
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--emerald);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+}
+.nav-btn:hover{
+    
+    transform: translateY(-1px) scale(1.1);
+}
+
+.loc-icon { 
+    text-decoration: none;
+    color: var(--emerald);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+ }
+
+.loc-icon:hover
+ { 
+    transform: translateY(-3px) scale(1.1);
+ }
+ .rental
+ {
+    text-decoration: none;
+    color: var(--emerald);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+ }
+ .rental:hover
+ {
+    transform: translateY(-3px) scale(1.1);
+ }
+
+
+.hero {
+    height: 100vh;
+    background: url("bgimage.avif") center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(15, 22, 30, 0.8), rgba(56, 82, 135, 0.2));
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+}
+
+.hero-content { color: rgb(204, 208, 214); max-width: 600px; animation: fadeInUp 1s ease; }
+.hero-content h1 { font-size: 4.5rem; line-height: 1; }
+.hero-content h1:hover
+{
+    transform: translateY(-3px) scale(1.1);
+}
+
+.explore-btn {
+    padding: 15px 35px;
+    background: var(--white);
+    color: rgb(242, 242, 250);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: #4c7fa2;
+}
+.explore-btn:hover
+{
+    transform: translateY(-3px) scale(1.2);
+}
+
+.container { padding: 100px 8%; display: flex; justify-content: center; }
+
+.info-card {
+    background: white;
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 900px;
+    margin-top: -150px;
+    position: relative;
+    z-index: 10;
+}
+
+.badge {
+    background: rgb(12, 70, 101);
+    color: rgb(234, 226, 226);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.line { width: 50px; height: 3px; background: var(--emerald); margin: 20px auto; }
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.f-item {
+    background: #e6e8e9;
+    padding: 30px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(200, 208, 220, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.f-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #27405a, #93bccf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.f-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(45, 90, 39, 0.15);
+    border-color: var(--sage);
+}
+
+
+.map-container {
+    padding: 80px 8%;
+    background-color: rgb(226, 226, 237);
+    text-align: center;
+}
+
+.map-header {
+    margin-bottom: 40px;
+}
+
+.map-frame {
+    border-radius: 30px;
+    overflow: hidden; 
+    box-shadow: var(--shadow);
+    border: 8px solid var(--soft-green);
+    transition: var(--transition);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map-frame:hover {
+    transform: scale(1.01);
+    box-shadow: 0 15px 40px rgba(1, 22, 255, 0.2);
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: rgb(255, 255, 255);
+    margin: 10% auto;
+    padding: 40px;
+    width: 400px;
+    border-radius: 20px;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+}
+
+.close { position: absolute; right: 20px; top: 15px; font-size: 25px; cursor: pointer; }
+
+.input-group {
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.input-group input { border: none; background: none; outline: none; width: 100%; }
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--emerald);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+/* ===== COMMITTEE SECTION ===== */
+
+.committee-section {
+    padding: 80px 8%;
+    text-align: center;
+    background: #f5f7fa;
+}
+
+.committee-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.member-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+}
+
+.member-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #6b8cd7;
+}
+
+.member-card h3 {
+    font-size: 1.1rem;
+    color: #202a82;
+}
+
+.role {
+    font-size: 0.9rem;
+    color: #256fb9;
+    font-weight: 600;
+}
+
+
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes logoFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+@media (max-width: 360px) {
+
+.hero-content h1{
+font-size: 2.2rem;
+}
+
+.nav-right{
+gap: 0.8rem;
+}
+
+.feature-grid{
+grid-template-columns: 1fr;
+}
+
+.info-card{
+padding: 25px;
+}
+
+.modal-content{
+width: 90%;
+}
+
+}
+
+@media (max-width: 480px) {
+
+.navbar{
+padding: 1rem 5%;
+}
+.committee-grid {
+    grid-template-columns: 1fr;
+}
+
+
+.logo-text{
+font-size: 16px;
+}
+
+.nav-btn, .loc-icon, .rental{
+font-size: 0.75rem;
+}
+
+.hero-content h1{
+font-size: 2.6rem;
+}
+
+.hero-overlay{
+padding-left: 5%;
+}
+
+.feature-grid{
+grid-template-columns: 1fr;
+gap: 15px;
+}
+
+.container{
+padding: 60px 5%;
+}
+
+.info-card{
+margin-top: -100px;
+padding: 30px;
+}
+
+.map-frame iframe{
+height: 320px;
+}
+
+}
+
+@media (max-width: 768px) {
+
+.hero-content h1{
+font-size: 3rem;
+}
+.committee-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.feature-grid{
+grid-template-columns: repeat(2, 1fr);
+}
+
+.nav-right{
+gap: 1rem;
+}
+
+.info-card{
+margin-top: -120px;
+}
+
+.modal-content{
+width: 80%;
+}
+
+}
+
+
+@media (max-width: 1024px) {
+
+.hero-content h1{
+font-size: 3.5rem;
+}
+
+.feature-grid{
+grid-template-columns: repeat(2, 1fr);
+}
+
+}
+
+
+@media (min-width: 1200px) {
+
+.container{
+max-width: 1400px;
+margin: auto;
+}
+
+.hero-content h1{
+font-size: 4.8rem;
+}
+
+
+}
+</style>
+
+    <style>
+        footer { 
+            background: #fff; 
+            color: var(--text-muted); 
+            padding: 40px 0; 
+            margin-top: 80px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .link-green { color: var(--primary-green); text-decoration: none; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-box">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+            GAJARA <span>AVENUE</span>
+        </div>
+    </div>
+    <div class="nav-right">
+        <a href="#location-section" class="loc-icon">LOCATION<i></i></a>
+        <a href="rental.html" class="rental">RENTAL<i></i></a>
+        <a href="contactpage.html" class="loc-icon">CONTACT US<i></i></a>
+        <a href="javascript:void(0)" class="nav-btn" onclick="openModal('signupModal')">Signup</a>
+        <a href="javascript:void(0)" class="nav-btn login-trigger" onclick="openModal('loginModal')">Login</a>
+        
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Gajara Avenue</h1><br>
+            <p>Sustainable Living. Smart Management.</p><br>
+            <button class="explore-btn" onclick="scrollToContent()">
+                Explore Features <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="container" id="features">
+    <section class="info-card">
+        <div class="badge">Elegance Defined</div>
+        <h2>Welcome to Your Smart Society</h2>
+        <div class="line"></div>
+        <p>A unified digital ecosystem designed for <strong>112 Elite Flats</strong>. Seamlessly bridge the gap between Residents, Committee Members, and Security Staff.</p>
+        
+        <div class="feature-grid">
+    <div class="f-item">
+        <i class="fa-solid fa-id-card-clip"></i> 
+        <span>Smart Visitor Entry</span>
+    </div>
+
+    <div class="f-item">
+        <i class="fa-solid fa-chart-line"></i> 
+        <span>Maintenance Tracker</span>
+    </div>
+
+    <div class="f-item">
+        <i class="fa-solid fa-headset"></i> 
+        <span>Service Support</span>
+    </div>
+
+    <div class="f-item">
+        <i class="fa-solid fa-leaf"></i> 
+        <span>Green Living</span>
+    </div>
+
+    <div class="f-item">
+        <i class="fa-solid fa-user-check"></i> 
+        <span>Verified Service Providers</span>
+    </div>
+
+    <div class="f-item">
+        <i class="fa-solid fa-magnifying-glass-chart"></i> 
+        <span>Society Insights</span>
+    </div>
+</div>
+    </section>
+</main>
+
+<section class="committee-section">
+    <div class="badge">Our Team</div>
+    <h2>Committee Members</h2>
+    <div class="line"></div>
+
+    <div class="committee-grid">
+
+        <div class="member-card">
+            <img src="member1.jpg" class="member-img">
+            <h3>Mr. Rajesh Patil</h3>
+            <p class="role">Chairman</p>
+        </div>
+
+        <div class="member-card">
+            <img src="member2.jpg" class="member-img">
+            <h3>Mrs. Anita Deshmukh</h3>
+            <p class="role">Secretary</p>
+        </div>
+
+        <div class="member-card">
+            <img src="member3.jpg" class="member-img">
+            <h3>Mr. Vikram Jadhav</h3>
+            <p class="role">Treasurer</p>
+        </div>
+
+        <div class="member-card">
+            <img src="member4.jpg" class="member-img">
+            <h3>Mrs. Suman Sharma</h3>
+            <p class="role">Committee Member</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="location-section" class="map-container">
+    <div class="map-header">
+        <div class="badge">Visit Us</div>
+        <h2>Our Location</h2>
+        <div class="line"></div>
+    </div>
+    <div class="map-frame">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.123456789!2d73.789!3d19.999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU5JzU2LjQiTiA3M8KwNDcnMjAuNCJF!5e0!3m2!1sen!2sin!4v1700000000000" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <form class="auth-form">
+            <h2>Welcome Back</h2><br>
+            <p>Login to your apartment dashboard</p><br>
+            <div class="input-group"><i class="fa fa-envelope"></i><input type="email" placeholder="Email" required></div>
+            <div class="input-group"><i class="fa fa-lock"></i><input type="password" placeholder="Password" required></div>
+            <button type="submit" class="auth-btn">Sign In</button>
+        </form>
+    </div>
+</div>
+
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('signupModal')">&times;</span>
+        <form class="auth-form">
+            <h2>Join the Avenue</h2><br>
+            <p>Register your flat to get started</p><br>
+            <div class="input-group"><i class="fa fa-user"></i><input type="text" placeholder="Full Name"></div>
+            <div class="input-group"><i class="fa fa-building"></i><input type="text" placeholder="Flat Number"></div>
+            <div class="input-group"><i class="fa fa-envelope"></i><input type="email" placeholder="Email"></div>
+            <div class="input-group"><i class="fa fa-lock"></i><input type="password" placeholder="Password"></div>
+            <button type="submit" class="auth-btn">Register Now</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Function to open modals
+function openModal(id) {
+    document.getElementById(id).style.display = "block";
+    document.body.style.overflow = "hidden"; // Stop scrolling when open
+}
+
+// Function to close modals
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Close modal if user clicks outside of the box
+window.onclick = function(event) {
+    if (event.target.className === "modal") {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Smooth scroll to features
+function scrollToContent() {
+    document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+}
+// ===== ONLY ADDED PART – NAVBAR & FOOTER LOADER =====
+
+function loadComponent(id, file) {
+    fetch(file)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(id).innerHTML = data;
+        });
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("navbar-container")) {
+        loadComponent("navbar-container", "components/navbar.html");
+    }
+
+    if (document.getElementById("footer-container")) {
+        loadComponent("footer-container", "components/footer.html");
+    }
+});
+
+</script>
+</body>
+</html>
