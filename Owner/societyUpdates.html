@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Society Updates | Gajra Avenue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --gold: #c5a059;
+    --bg: #0a0a0b;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--bg);
+    color:white;
+}
+
+/* HEADER */
+.header{
+   height: 160px;              /* Fixed smaller height */ 
+   display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:
+        linear-gradient(to right, rgba(10,10,11,0.85), rgba(10,10,11,0.6)),
+        url('gajra_avenue-pathardi_phata-nashik-gajra_associates.jpg');
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+}
+
+.header h1{
+    font-family:'Cinzel',serif;
+    color:var(--gold);
+}
+
+/* UPDATE CARD */
+.update-card{
+    background:#111;
+    border:1px solid rgba(197,160,89,0.3);
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.update-card h6{
+    color:var(--gold);
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:black;
+    border:none;
+    font-weight: 600;
+}
+
+.btn-gold:hover{
+    color:black;
+    background-color: white;
+}
+</style>
+</head>
+
+<body>
+
+<section class="header">
+<h1>Society Updates</h1>
+<p class="text-white-50">Latest announcements & activities</p>
+</section>
+
+<div class="container py-5">
+
+<div id="updates">
+
+<div class="update-card">
+<h6>New CCTV Installed</h6>
+<p>Security improved in parking area</p>
+<small class="text-white-50">Today</small>
+</div>
+
+<div class="update-card">
+<h6>Garden Maintenance</h6>
+<p>Cleaning and trimming completed</p>
+<small class="text-white-50">Yesterday</small>
+</div>
+
+<!-- HIDDEN -->
+<div class="update-card extra d-none">
+<h6>Lift Servicing</h6>
+<p>Routine servicing done</p>
+<small class="text-white-50">2 Days Ago</small>
+</div>
+
+<div class="update-card extra d-none">
+<h6>Parking Cleaning</h6>
+<p>Deep cleaning completed</p>
+<small class="text-white-50">3 Days Ago</small>
+</div>
+
+</div>
+
+<div class="text-center mt-4">
+<button onclick="toggleUpdates()" class="btn btn-gold" id="btn">
+Show All
+</button>
+</div>
+
+</div>
+
+<script>
+let expanded = false;
+
+function toggleUpdates(){
+    const items = document.querySelectorAll(".extra");
+    const btn = document.getElementById("btn");
+
+    items.forEach(i => i.classList.toggle("d-none"));
+
+    expanded = !expanded;
+    btn.innerText = expanded ? "Show Less" : "Show All";
+}
+</script>
+
+</body>
+</html>
